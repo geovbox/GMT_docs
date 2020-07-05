@@ -1,45 +1,48 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<html class="writer-html5" lang="zh-CN" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>-U 选项 &mdash; GMT中文手册</title>
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
   
+
   
   
     <link rel="canonical" href="https://docs.gmt-china.org/latest/option/U.html"/>
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="-V 选项" href="../V/" />
@@ -90,6 +93,7 @@
 
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
     
@@ -98,12 +102,15 @@
               
             
             
-              <p class="caption"><span class="caption-text">目 录</span></p>
-<ul class="current">
+              <p><span class="caption-text">GMT 入门</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
+</ul>
+<p><span class="caption-text">GMT 进阶</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../grid/">网格文件</a></li>
@@ -127,7 +134,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../distcal/">-j 选项</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../l/">-l 选项</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../n/">-n 选项</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../perspective/">-p 选项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../p/">-p 选项</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../q/">-q 选项</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nodereg/">-r 选项</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../s/">-s 选项</a></li>
@@ -139,11 +146,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../proj/">地图投影</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../conf/">配置参数</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dataset/">地学数据集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataset-CN/">中国地学数据集</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../chinese/">中文支持</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gallery/">绘图示例</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
+</ul>
+<p><span class="caption-text">附录</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
 </ul>
 
             
@@ -169,6 +180,7 @@
     
 
         </div>
+        
       </div>
     </nav>
 
@@ -203,11 +215,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../">首页</a> &raquo;</li>
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../">标准选项</a> &raquo;</li>
         
@@ -216,7 +230,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             
               <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/option/U.rst" class="fa fa-github"> 编辑本页</a>
             
@@ -232,41 +246,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="u">
+  <section id="u">
 <h1>-U 选项<a class="headerlink" href="#u" title="永久链接至标题">¶</a></h1>
 <p><strong>-U</strong> 选项用于在图上绘制一个带有GMT标识的时间戳。其语法为:</p>
 <blockquote>
-<div><strong>-U</strong>[<em>label</em>][<strong>+c</strong>][<strong>+j</strong><em>just</em>][<strong>+o</strong><em>dx</em>/<em>dy</em>]</div></blockquote>
+<div><p><strong>-U</strong>[<em>label</em>][<strong>+c</strong>][<strong>+j</strong><em>just</em>][<strong>+o</strong><em>dx</em>/<em>dy</em>]</p>
+</div></blockquote>
 <ul class="simple">
-<li><strong>-U</strong> 不加任何参数时会在当前图的左下角添加一个带GMT标识的时间戳</li>
-<li><strong>-U</strong><em>label</em> 会在时间戳后打印字符串 <em>label</em>，比如 <code class="docutils literal notranslate"><span class="pre">-U&quot;This</span> <span class="pre">is</span> <span class="pre">string&quot;</span></code></li>
-<li><strong>-U+c</strong> 会在时间戳后打印当前命令</li>
-<li><strong>-U+j</strong><em>just</em><strong>+o</strong><em>dx</em>/<em>dy</em> 用于控制将时间戳的哪个<a class="reference internal" href="../../basis/anchor/"><span class="doc">锚点</span></a>
-与当前底图的左下角对齐，以及其偏移量。例如，<code class="docutils literal notranslate"><span class="pre">-U+jBL+o0/0</span></code> 表示将时间戳的左下角与底图左下角对齐</li>
+<li><p><strong>-U</strong> 不加任何参数时会在当前图的左下角添加一个带GMT标识的时间戳</p></li>
+<li><p><strong>-U</strong><em>label</em> 会在时间戳后打印字符串 <em>label</em>，比如 <code class="docutils literal notranslate"><span class="pre">-U&quot;This</span> <span class="pre">is</span> <span class="pre">string&quot;</span></code></p></li>
+<li><p><strong>-U+c</strong> 会在时间戳后打印当前命令</p></li>
+<li><p><strong>-U+j</strong><em>just</em><strong>+o</strong><em>dx</em>/<em>dy</em> 用于控制将时间戳的哪个<a class="reference internal" href="../../basis/anchor/"><span class="doc">锚点</span></a>
+与当前底图的左下角对齐，以及其偏移量。例如，<code class="docutils literal notranslate"><span class="pre">-U+jBL+o0/0</span></code> 表示将时间戳的左下角与底图左下角对齐</p></li>
 </ul>
 <p>GMT参数中有一些可以控制时间戳：</p>
 <ul class="simple">
-<li><a class="reference internal" href="../../conf/map/#term-map-logo"><span class="xref std std-term">MAP_LOGO</span></a> 控制是否绘制时间戳，默认值为 <strong>FALSE</strong></li>
-<li><a class="reference internal" href="../../conf/map/#term-map-logo-pos"><span class="xref std std-term">MAP_LOGO_POS</span></a> 用于控制时间戳的位置</li>
-<li><a class="reference internal" href="../../conf/format/#term-format-time-stamp"><span class="xref std std-term">FORMAT_TIME_STAMP</span></a> 用于控制时间戳的显示格式</li>
-<li><a class="reference internal" href="../../conf/font/#term-font-logo"><span class="xref std std-term">FONT_LOGO</span></a> 时间戳中文本字体</li>
+<li><p><a class="reference internal" href="../../conf/map/#term-MAP_LOGO"><span class="xref std std-term">MAP_LOGO</span></a> 控制是否绘制时间戳，默认值为 <strong>FALSE</strong></p></li>
+<li><p><a class="reference internal" href="../../conf/map/#term-MAP_LOGO_POS"><span class="xref std std-term">MAP_LOGO_POS</span></a> 用于控制时间戳的位置</p></li>
+<li><p><a class="reference internal" href="../../conf/format/#term-FORMAT_TIME_STAMP"><span class="xref std std-term">FORMAT_TIME_STAMP</span></a> 用于控制时间戳的显示格式</p></li>
+<li><p><a class="reference internal" href="../../conf/font/#term-FONT_LOGO"><span class="xref std std-term">FONT_LOGO</span></a> 时间戳中文本字体</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt basemap -R0/10/0/5 -JX10c/3c -Bx1 -By1 -U<span class="s2">&quot;This is a GMT logo&quot;</span> -png GMT_-U
 </pre></div>
 </div>
-<div class="figure align-center" id="id1">
+<figure class="align-center" id="id1">
 <img alt="../../_images/U-gmtplot-0.png" src="../../_images/U-gmtplot-0.png" />
-<p class="caption"><span class="caption-text"><strong>-U</strong> 选项加时间戳</span></p>
-</div>
+<figcaption>
+<p><span class="caption-text"><strong>-U</strong> 选项加时间戳</span><a class="headerlink" href="#id1" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
 <div class="admonition important">
-<p class="first admonition-title">重要</p>
-<p class="last">每个带有 <strong>-U</strong> 选项的绘图命令都会绘制一遍时间戳，因而一张图中只需要在一个绘图命令中使用 <strong>-U</strong> 即可。</p>
+<p class="admonition-title">重要</p>
+<p>每个带有 <strong>-U</strong> 选项的绘图命令都会绘制一遍时间戳，因而一张图中只需要在一个绘图命令中使用 <strong>-U</strong> 即可。</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">注解</p>
-<p class="last">修改UNIX 环境变量 <strong>TZ</strong> 可以控制时间戳中时间所使用的时区，默认为当地时区。</p>
+<p class="admonition-title">注解</p>
+<p>修改UNIX 环境变量 <strong>TZ</strong> 可以控制时间戳中时间所使用的时区，默认为当地时区。例如，使用 <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">TZ=Asia/Shanghai</span></code> 可以将时区设置为东八区。</p>
 </div>
-</div>
+</section>
 
 
            </div>
@@ -296,32 +313,32 @@ gitalk.render('gitalk-container');
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../V/" class="btn btn-neutral float-right" title="-V 选项" accesskey="n" rel="next">下页 <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../B/" class="btn btn-neutral float-left" title="-B 选项" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> 上页</a>
-      
+        <a href="../V/" class="btn btn-neutral float-right" title="-V 选项" accesskey="n" rel="next">下页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../B/" class="btn btn-neutral float-left" title="-B 选项" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上页</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014 - 2020, GMT中文社区.
+        &#169; 版权所有 2014 - 2021, GMT中文社区..
       <span class="lastupdated">
-        最后更新于 2020年07月05日.
+        最后更新于 2021年04月08日.
       </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -329,7 +346,6 @@ gitalk.render('gitalk-container');
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

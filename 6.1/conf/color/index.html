@@ -1,45 +1,48 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<html class="writer-html5" lang="zh-CN" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>COLOR参数 &mdash; GMT中文手册</title>
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
   
+
   
   
     <link rel="canonical" href="https://docs.gmt-china.org/latest/conf/color.html"/>
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="DIR参数" href="../dir/" />
@@ -90,6 +93,7 @@
 
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
     
@@ -98,12 +102,15 @@
               
             
             
-              <p class="caption"><span class="caption-text">目 录</span></p>
-<ul class="current">
+              <p><span class="caption-text">GMT 入门</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
+</ul>
+<p><span class="caption-text">GMT 进阶</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../grid/">网格文件</a></li>
@@ -130,11 +137,15 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../dataset/">地学数据集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataset-CN/">中国地学数据集</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../chinese/">中文支持</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gallery/">绘图示例</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
+</ul>
+<p><span class="caption-text">附录</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
 </ul>
 
             
@@ -160,6 +171,7 @@
     
 
         </div>
+        
       </div>
     </nav>
 
@@ -194,11 +206,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../">首页</a> &raquo;</li>
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../">配置参数</a> &raquo;</li>
         
@@ -207,7 +221,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             
               <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/conf/color.rst" class="fa fa-github"> 编辑本页</a>
             
@@ -223,45 +237,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="color">
+  <section id="color">
 <h1>COLOR参数<a class="headerlink" href="#color" title="永久链接至标题">¶</a></h1>
 <p>这一节列出所有与颜色相关的配置参数，参数的默认值在中括号内列出。</p>
-<div class="section" id="cpt">
+<section id="cpt">
 <h2>CPT相关参数<a class="headerlink" href="#cpt" title="永久链接至标题">¶</a></h2>
-<dl class="glossary docutils">
-<dt id="term-color-background"><strong>COLOR_BACKGROUND</strong></dt>
-<dd>数据Z值小于CPT文件中最小值时使用的背景色 [<code class="docutils literal notranslate"><span class="pre">black</span></code>]</dd>
-<dt id="term-color-foreground"><strong>COLOR_FOREGROUND</strong></dt>
-<dd>数据Z值大于CPT文件中最大值时使用的前景色 [<code class="docutils literal notranslate"><span class="pre">white</span></code>]</dd>
-<dt id="term-color-nan"><strong>COLOR_NAN</strong></dt>
-<dd>数值Z值为 NaN 时使用的颜色 [<code class="docutils literal notranslate"><span class="pre">127.5</span></code>]</dd>
-<dt id="term-color-model"><strong>COLOR_MODEL</strong></dt>
-<dd><p class="first">对CPT文件做插值生成新CPT时所使用的色彩模型 [<code class="docutils literal notranslate"><span class="pre">none</span></code>]</p>
+<dl class="glossary">
+<dt id="term-COLOR_BACKGROUND"><strong>COLOR_BACKGROUND</strong><a class="headerlink" href="#term-COLOR_BACKGROUND" title="Permalink to this term">¶</a></dt><dd><p>数据Z值小于CPT文件中最小值时使用的背景色 [black]</p>
+</dd>
+<dt id="term-COLOR_FOREGROUND"><strong>COLOR_FOREGROUND</strong><a class="headerlink" href="#term-COLOR_FOREGROUND" title="Permalink to this term">¶</a></dt><dd><p>数据Z值大于CPT文件中最大值时使用的前景色 [white]</p>
+</dd>
+<dt id="term-COLOR_NAN"><strong>COLOR_NAN</strong><a class="headerlink" href="#term-COLOR_NAN" title="Permalink to this term">¶</a></dt><dd><p>数值Z值为 NaN 时使用的颜色 [127.5]</p>
+</dd>
+<dt id="term-COLOR_MODEL"><strong>COLOR_MODEL</strong><a class="headerlink" href="#term-COLOR_MODEL" title="Permalink to this term">¶</a></dt><dd><p>对CPT文件中的颜色做插值生成新CPT时所使用的色彩模型 [<strong>none</strong>]</p>
 <p>可以取如下值：</p>
-<ul class="last simple">
-<li><code class="docutils literal notranslate"><span class="pre">none</span></code>：使用CPT文件中指定的 <code class="docutils literal notranslate"><span class="pre">COLOR_MODEL</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">rgb</span></code>：在RGB色彩空间中插值</li>
-<li><code class="docutils literal notranslate"><span class="pre">hsv</span></code>：在HSV色彩空间中插值</li>
-<li><code class="docutils literal notranslate"><span class="pre">cmyk</span></code>：假定颜色是CMYK色彩空间，但在RGB空间内插值</li>
+<ul class="simple">
+<li><p><strong>none</strong>：使用CPT文件中指定的 <strong>COLOR_MODEL</strong></p></li>
+<li><p><strong>rgb</strong>：在RGB色彩空间中插值</p></li>
+<li><p><strong>hsv</strong>：在HSV色彩空间中插值</p></li>
+<li><p><strong>cmyk</strong>：假定颜色是CMYK色彩空间，但在RGB空间内插值</p></li>
 </ul>
 </dd>
 </dl>
-</div>
-<div class="section" id="id1">
+</section>
+<section id="id1">
 <h2>光照相关参数<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>某些绘图模块（如 <a class="reference internal" href="../../module/grdimage/"><span class="doc">grdimage</span></a>、<a class="reference internal" href="../../module/colorbar/"><span class="doc">colorbar</span></a>）可以利用强度文件模拟光照效果。光照效果的实现，本质上是先将任意颜色转换成HSV模型，然后根据强度的正负，增大/减小HSV模型中的S（饱和度）和V（明度），以达到模拟光照的效果。下面的四个参数控制了模拟光照过程中S和V变化的极限值，以避免模拟的光照过亮或过暗。</p>
-<dl class="glossary docutils">
-<dt id="term-color-hsv-min-s"><strong>COLOR_HSV_MIN_S</strong></dt>
-<dd>负强度最小值对应的S值，取值范围0到1 [1.0]</dd>
-<dt id="term-color-hsv-max-s"><strong>COLOR_HSV_MAX_S</strong></dt>
-<dd>正强度最大值对应的S值，取值范围0到1 [0.1]</dd>
-<dt id="term-color-hsv-min-v"><strong>COLOR_HSV_MIN_V</strong></dt>
-<dd>负强度最小值对应的V值，取值范围0到1 [0.3]</dd>
-<dt id="term-color-hsv-max-v"><strong>COLOR_HSV_MAX_V</strong></dt>
-<dd>正强度最大值对应的V值，取值范围0到1 [1.0]</dd>
+<dl class="glossary simple">
+<dt id="term-COLOR_HSV_MIN_S"><strong>COLOR_HSV_MIN_S</strong><a class="headerlink" href="#term-COLOR_HSV_MIN_S" title="Permalink to this term">¶</a></dt><dd><p>负强度最小值对应的S值，取值范围0到1 [1.0]</p>
+</dd>
+<dt id="term-COLOR_HSV_MAX_S"><strong>COLOR_HSV_MAX_S</strong><a class="headerlink" href="#term-COLOR_HSV_MAX_S" title="Permalink to this term">¶</a></dt><dd><p>正强度最大值对应的S值，取值范围0到1 [0.1]</p>
+</dd>
+<dt id="term-COLOR_HSV_MIN_V"><strong>COLOR_HSV_MIN_V</strong><a class="headerlink" href="#term-COLOR_HSV_MIN_V" title="Permalink to this term">¶</a></dt><dd><p>负强度最小值对应的V值，取值范围0到1 [0.3]</p>
+</dd>
+<dt id="term-COLOR_HSV_MAX_V"><strong>COLOR_HSV_MAX_V</strong><a class="headerlink" href="#term-COLOR_HSV_MAX_V" title="Permalink to this term">¶</a></dt><dd><p>正强度最大值对应的V值，取值范围0到1 [1.0]</p>
+</dd>
 </dl>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -291,32 +304,32 @@ gitalk.render('gitalk-container');
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../dir/" class="btn btn-neutral float-right" title="DIR参数" accesskey="n" rel="next">下页 <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../map/" class="btn btn-neutral float-left" title="MAP参数" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> 上页</a>
-      
+        <a href="../dir/" class="btn btn-neutral float-right" title="DIR参数" accesskey="n" rel="next">下页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../map/" class="btn btn-neutral float-left" title="MAP参数" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上页</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014 - 2020, GMT中文社区.
+        &#169; 版权所有 2014 - 2021, GMT中文社区..
       <span class="lastupdated">
-        最后更新于 2020年07月05日.
+        最后更新于 2021年04月08日.
       </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -324,7 +337,6 @@ gitalk.render('gitalk-container');
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

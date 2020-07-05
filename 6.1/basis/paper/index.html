@@ -1,45 +1,48 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<html class="writer-html5" lang="zh-CN" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>画布 &mdash; GMT中文手册</title>
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
   
+
   
   
     <link rel="canonical" href="https://docs.gmt-china.org/latest/basis/paper.html"/>
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="单位" href="../unit/" />
@@ -90,6 +93,7 @@
 
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
     
@@ -98,12 +102,15 @@
               
             
             
-              <p class="caption"><span class="caption-text">目 录</span></p>
-<ul class="current">
+              <p><span class="caption-text">GMT 入门</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
+</ul>
+<p><span class="caption-text">GMT 进阶</span></p>
+<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../">GMT基础</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">画布</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">图片格式</a></li>
@@ -123,6 +130,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../anchor/">锚点</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../embellishment/">绘制修饰物</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../io-format/">数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../input-files/">寻找输入文件</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -132,11 +140,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../proj/">地图投影</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../conf/">配置参数</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dataset/">地学数据集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataset-CN/">中国地学数据集</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../chinese/">中文支持</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gallery/">绘图示例</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
+</ul>
+<p><span class="caption-text">附录</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
 </ul>
 
             
@@ -162,6 +174,7 @@
     
 
         </div>
+        
       </div>
     </nav>
 
@@ -196,11 +209,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../">首页</a> &raquo;</li>
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../">GMT基础</a> &raquo;</li>
         
@@ -209,7 +224,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             
               <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/basis/paper.rst" class="fa fa-github"> 编辑本页</a>
             
@@ -225,10 +240,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="id1">
+  <section id="id1">
 <h1>画布<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>要画一张图，首先需要准备一个画布。GMT默认的画布是一个PDF文件。</p>
-<div class="section" id="id2">
+<section id="id2">
 <h2>图片格式<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>GMT支持多种矢量图片格式和位图图片格式。</p>
 <p>矢量图片格式包括PDF（推荐使用）、PS 和 EPS 格式；位图图片格式包括PNG（推荐）、JPG（推荐）、BMP、PPM和TIFF格式。</p>
@@ -239,45 +254,46 @@ gmt end show
 </pre></div>
 </div>
 <div class="admonition tip">
-<p class="first admonition-title">小技巧</p>
+<p class="admonition-title">小技巧</p>
 <p>如无特殊需求，不建议使用PS图片格式。PS图片格式具有如下缺点（在后面会提到）：</p>
-<ol class="last arabic simple">
-<li>不支持透明色</li>
-<li>默认画布大小为A4，而其它格式默认画布大小均为11.55米x11.55米（允许的最大尺寸）</li>
-<li>PS阅读器只有一两款，不如PDF或其它图片格式选择性多</li>
+<ol class="arabic simple">
+<li><p>不支持透明色</p></li>
+<li><p>默认画布大小为A4，而其它格式默认画布大小均为11.55米x11.55米（允许的最大尺寸）</p></li>
+<li><p>PS图片格式不支持裁剪，而其它图片格式均支持自动裁剪</p></li>
+<li><p>PS阅读器只有一两款，不如PDF或其它图片格式选择性多</p></li>
 </ol>
 </div>
-</div>
-<div class="section" id="id3">
+</section>
+<section id="id3">
 <h2>画布颜色<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>默认的画布颜色为白色，可以通过修改GMT参数 <a class="reference internal" href="../../conf/ps/#term-ps-page-color"><span class="xref std std-term">PS_PAGE_COLOR</span></a> 来修改画布颜色:</p>
+<p>默认的画布颜色为白色，可以通过修改GMT参数 <a class="reference internal" href="../../conf/ps/#term-PS_PAGE_COLOR"><span class="xref std std-term">PS_PAGE_COLOR</span></a> 来修改画布颜色:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt begin map pdf,png
 gmt <span class="nb">set</span> PS_PAGE_COLOR lightred
 gmt ...
 gmt end show
 </pre></div>
 </div>
-</div>
-<div class="section" id="id4">
+</section>
+<section id="id4">
 <h2>画布大小<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>GMT中默认使用宽11.55米、高11.55米的画布，绘图原点位于画布左下角。在最终生成图片文件时会自动将未使用的白色区域裁减掉，因而用户无需关心画布大小。</p>
 <p>若需要生成特定尺寸的图片，而不裁剪周边的白色区域，可以修改GMT参数
-<a class="reference internal" href="../../conf/ps/#term-ps-media"><span class="xref std std-term">PS_MEDIA</span></a> 来指定纸张尺寸:</p>
+<a class="reference internal" href="../../conf/ps/#term-PS_MEDIA"><span class="xref std std-term">PS_MEDIA</span></a> 来指定纸张尺寸:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt begin map
 gmt <span class="nb">set</span> PS_MEDIA A4
 gmt ...
 gmt end show
 </pre></div>
 </div>
-<p>PS图片格式是一个例外。若选择PS作为图片格式，则默认画布大小为 A4 纸大小。当用户需要更大的画布时，则必须修改GMT参数 <a class="reference internal" href="../../conf/ps/#term-ps-media"><span class="xref std std-term">PS_MEDIA</span></a> 来修改画布尺寸:</p>
+<p>PS图片格式是一个例外。若选择PS作为图片格式，则默认画布大小为 A4 纸大小。当用户需要更大的画布时，则必须修改GMT参数 <a class="reference internal" href="../../conf/ps/#term-PS_MEDIA"><span class="xref std std-term">PS_MEDIA</span></a> 来修改画布尺寸:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt begin map ps
 gmt <span class="nb">set</span> PS_MEDIA A1
 gmt ...
 gmt end
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -307,32 +323,32 @@ gitalk.render('gitalk-container');
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../unit/" class="btn btn-neutral float-right" title="单位" accesskey="n" rel="next">下页 <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../" class="btn btn-neutral float-left" title="GMT基础" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> 上页</a>
-      
+        <a href="../unit/" class="btn btn-neutral float-right" title="单位" accesskey="n" rel="next">下页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../" class="btn btn-neutral float-left" title="GMT基础" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上页</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014 - 2020, GMT中文社区.
+        &#169; 版权所有 2014 - 2021, GMT中文社区..
       <span class="lastupdated">
-        最后更新于 2020年07月05日.
+        最后更新于 2021年04月08日.
       </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -340,7 +356,6 @@ gitalk.render('gitalk-container');
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
