@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>CPT类型 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/cpt/format.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -46,7 +46,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="内置CPT" href="../builtin-cpt/" />
-    <link rel="prev" title="CPT文件" href="../" /> 
+    <link rel="prev" title="CPT文件" href="../" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,39 +64,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -102,14 +99,14 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -136,10 +133,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -151,15 +149,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -217,7 +213,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/cpt/format.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/cpt/format.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -231,10 +227,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="cpt">
+  <div class="section" id="cpt">
 <h1>CPT类型<a class="headerlink" href="#cpt" title="永久链接至标题">¶</a></h1>
 <p>CPT文件可以分成两类，一种适用于分类数据，一种适用于常规数据。下面会逐一介绍两种类型的CPT文件的格式，以及其如何实现数值与颜色之间的映射。</p>
-<section id="id1">
+<div class="section" id="id1">
 <h2>分类CPT<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>分类CPT文件适用于分类数据。所谓分类数据，是指数据只能取有限个离散的值。比如将陆地分为不同的类型：沙漠、森林、冰川等等。定义1代表沙漠，2代表森林，3代表冰川。显然值取1.5是没有意义的。</p>
 <p>分类CPT中，对于每个分类要指定唯一的 key，对应的颜色以及一个可选的标签。分类CPT文件的格式为（中括号表示该项是可选项）:</p>
@@ -287,11 +283,11 @@ gmt colorbar -Ctypes.cpt -DJBC+e+n
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/format-gmtplot-0.png"><img alt="../../_images/format-gmtplot-0.png" src="../../_images/format-gmtplot-0.png" style="width: 75%;" /></a>
-</figure>
-</section>
-<section id="id2">
+</div>
+</div>
+<div class="section" id="id2">
 <h2>常规CPT<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>常规CPT文件适用于连续变化的数据。对于连续变化的数据，无法为每个可能的数据值都指定颜色，通常的做法是为某些特定值指定颜色，其它值的颜色则通过插值得到。</p>
 <p>常规CPT文件的格式为（中括号表示该项为可选项）:</p>
@@ -374,11 +370,11 @@ gmt colorbar -Cdiscontinous-2.cpt -Dx0c/0c+w5c+h -Y1.5c
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/format-gmtplot-1.png"><img alt="../../_images/format-gmtplot-1.png" src="../../_images/format-gmtplot-1.png" style="width: 50%;" /></a>
-</figure>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
@@ -417,9 +413,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

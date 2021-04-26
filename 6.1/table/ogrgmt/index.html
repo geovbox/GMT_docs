@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>OGR/GMT矢量数据格式 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/table/ogrgmt.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -46,7 +46,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="用ogr2ogr实现数据转换" href="../ogr2ogr/" />
-    <link rel="prev" title="Shapefile格式" href="../shapefile/" /> 
+    <link rel="prev" title="Shapefile格式" href="../shapefile/" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,39 +64,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -102,14 +99,14 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../">表数据</a><ul class="current">
@@ -150,10 +147,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -165,15 +163,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -231,7 +227,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/table/ogrgmt.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/table/ogrgmt.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -245,9 +241,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="ogr-gmt">
+  <div class="section" id="ogr-gmt">
 <h1>OGR/GMT矢量数据格式<a class="headerlink" href="#ogr-gmt" title="永久链接至标题">¶</a></h1>
-<section id="id1">
+<div class="section" id="id1">
 <h2>简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>地理空间数据有多种格式，按照类型划分，可以大致分为光栅型（raster）和矢量型（vector）。</p>
 <ul class="simple">
@@ -258,8 +254,8 @@
 <p><a class="reference external" href="http://www.gdal.org/">GDAL</a> 是一个可以实现多种光栅型或矢量型地理空间数据格式间互相转换的库/工具，其全称为Geospatial Data Abstraction Library。历史上，GDAL仅用于处理光栅型数据格式，而OGR则仅用于处理矢量型数据格式。从GDAL 2.0开始，二者相互集成在一起，即GDAL已经具备了处理光栅型和矢量型地理空间数据格式的能力。本文中，提到OGR时，仅表示地理空间矢量数据格式。</p>
 <p>一个矢量数据中，不仅仅有地理空间数据（地理坐标数据，点、线、多边形等），也可以有非地理空间数据（城市名等）。老版本的GMT只能处理地理空间数据，而不能利用非地理空间数据。GMT5定义了一种兼容OGR的GMT矢量数据格式，通常称为OGR/GMT格式。这种格式中包含了地理空间和非地理空间数据，所有的非地理空间数据都以注释的形式写到文件中，因而GMT4也可以正常读取
 OGR/GMT格式的数据。OGR/GMT格式中包含了非空间数据，使得GMT的输出可以很容易地被其他GIS或绘图软件所使用。</p>
-</section>
-<section id="id2">
+</div>
+<div class="section" id="id2">
 <h2>OGR/GMT格式<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>OGR/GMT格式的一些重要性质列举如下：</p>
 <ul class="simple">
@@ -272,19 +268,19 @@ OGR/GMT格式的数据。OGR/GMT格式中包含了非空间数据，使得GMT的
 <li><p>每个文件有一个头段注释，其中指定了当前文件所包含的地理特征，以及每个特征所对应的非地理属性（比如区域范围，投影方式等）</p></li>
 <li><p>同一个OGR/GMT格式的文件中，所有数据段必须具有相同类型的特征（都是点或线或多边形）</p></li>
 </ul>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h2>OGR/GMT元数据<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>在OGR/GMT格式的文件头部，需要包含一系列元数据信息。元数据用于描述整个文件的共同信息，比如版本号、几何类型、区域范围、投影方式、非空间数据的格式等信息。</p>
-<section id="v">
+<div class="section" id="v">
 <h3>格式版本号 <strong>&#64;V</strong><a class="headerlink" href="#v" title="永久链接至标题">¶</a></h3>
 <p>OGR/GMT格式的版本号用 <strong>&#64;V</strong> 来指定。因而OGR/GMT格式的文件的第一行的内容必须是:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># @VGMT1.0</span>
 </pre></div>
 </div>
 <p>其中 <strong>GMT1.0</strong> 是OGR/GMT格式的版本号。</p>
-</section>
-<section id="g">
+</div>
+<div class="section" id="g">
 <h3>几何类型 <strong>&#64;G</strong><a class="headerlink" href="#g" title="永久链接至标题">¶</a></h3>
 <p><strong>&#64;G</strong> 用于指定当前数据文件的几何类型，其后接的参数可以是：</p>
 <ul class="simple">
@@ -299,15 +295,15 @@ OGR/GMT格式的数据。OGR/GMT格式中包含了非空间数据，使得GMT的
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># @VGMT1.0 @GPOLYGON</span>
 </pre></div>
 </div>
-</section>
-<section id="r">
+</div>
+<div class="section" id="r">
 <h3>区域范围 <strong>&#64;R</strong><a class="headerlink" href="#r" title="永久链接至标题">¶</a></h3>
 <p><strong>&#64;R</strong> 用于指定区域范围，其格式与 <strong>-R</strong> 选项一致。例如:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># @R150/190/-45/-54</span>
 </pre></div>
 </div>
-</section>
-<section id="j">
+</div>
+<div class="section" id="j">
 <h3>投影信息 <strong>&#64;J</strong><a class="headerlink" href="#j" title="永久链接至标题">¶</a></h3>
 <p>投影信息用四个可选的字符串表示，每个字符串以 <strong>&#64;J</strong> 开头。</p>
 <ul class="simple">
@@ -325,8 +321,8 @@ AUTHORITY<span class="o">[</span><span class="se">\&quot;</span>EPSG<span class=
 AUTHORITY<span class="o">[</span><span class="se">\&quot;</span>EPSG<span class="se">\&quot;</span>,<span class="se">\&quot;</span><span class="m">9122</span><span class="se">\&quot;</span><span class="o">]]</span>,AUTHORITY<span class="o">[</span><span class="se">\&quot;</span>EPSG<span class="se">\&quot;</span>,<span class="se">\&quot;</span><span class="m">4326</span><span class="se">\&quot;</span><span class="o">]]</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-</section>
-<section id="n">
+</div>
+<div class="section" id="n">
 <h3>声明非空间字段 <strong>&#64;N</strong><a class="headerlink" href="#n" title="永久链接至标题">¶</a></h3>
 <p><strong>&#64;N</strong> 后接一个用于描述非空间字段名称的字符串，各个字段名称之间用 <strong>|</strong> 分隔。若字段名称中有空格，则必须用引号括起来。<strong>&#64;N</strong> 必须有一个与之对应的 <strong>&#64;T</strong>。其中 <strong>&#64;T</strong> 用于指定每个字段名称的数据类型。可取的数据类型包括 <strong>string</strong>、
 <strong>interger</strong>、<strong>double</strong>、<strong>datetime</strong> 和 <strong>logical</strong>。</p>
@@ -335,12 +331,12 @@ AUTHORITY<span class="o">[</span><span class="se">\&quot;</span>EPSG<span class=
 </pre></div>
 </div>
 <p>表明数据文件中包含了多个多边形，每个多边形都可以有独立的头段记录以指定非空间信息，非空间信息有三个，分别是name、depth和id，三个字段分别是字符串、浮点型和整型。</p>
-</section>
-</section>
-<section id="id4">
+</div>
+</div>
+<div class="section" id="id4">
 <h2>OGR/GMT数据<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>元数据之后即是真正的数据，包括非空间数据和空间数据。</p>
-<section id="id5">
+<div class="section" id="id5">
 <h3>非空间数据<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <p>非空间数据用 <strong>&#64;D</strong> 表示，紧跟着一系列以 <strong>|</strong> 分隔的字符串，每个字段的含义以及格式由 <strong>&#64;N</strong> 和 <strong>&#64;T</strong> 决定。</p>
 <p>非空间数据所在的注释行应放在每段数据的坐标数据前。对于几何类型为 <strong>LINE</strong>、
@@ -357,15 +353,15 @@ AUTHORITY<span class="o">[</span><span class="se">\&quot;</span>EPSG<span class=
 <span class="c1"># @D&quot;Area 1&quot;|-34.5|1</span>
 </pre></div>
 </div>
-</section>
-<section id="id6">
+</div>
+<div class="section" id="id6">
 <h3>多边形拓扑<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <p>旧版本的GMT只支持常规的多边形，不支持一个多边形内有个洞的情况。</p>
 <p>GMT通过在多边形数据前加上 <strong>&#64;P</strong> 和 <strong>&#64;H</strong> 来指定当前的数据段是外环还是内环，即是真正的多边形，还是多边形内的洞。<strong>&#64;H</strong> 必须紧跟在对应的 <strong>&#64;P</strong> 之后。</p>
 <p><strong>&#64;H</strong> 所指定的洞不应该有任何 <strong>&#64;D</strong> 值，因为非空间数据适用于整个特性，而 <strong>&#64;H</strong> 所指定的多边形只是多边形的一部分，并不是一个新的多边形。</p>
-</section>
-</section>
-<section id="id7">
+</div>
+</div>
+<div class="section" id="id7">
 <h2>示例<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>点数据示例:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># @VGMT1.0 @GPOINT @Nname|depth|id</span>
@@ -427,8 +423,8 @@ AUTHORITY<span class="o">[</span><span class="se">\&quot;</span>EPSG<span class=
 ...
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -467,9 +463,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

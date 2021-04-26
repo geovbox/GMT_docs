@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>-j 选项 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/option/distcal.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
         <script async="async" src="https://cdn.bootcss.com/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
@@ -47,7 +47,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="-l 选项" href="../l/" />
-    <link rel="prev" title="-i 和 -o 选项" href="../io/" /> 
+    <link rel="prev" title="-i 和 -o 选项" href="../io/" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -59,39 +65,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -103,14 +100,14 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -157,10 +154,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -172,15 +170,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -238,7 +234,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/option/distcal.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/option/distcal.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -252,7 +248,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="j">
+  <div class="section" id="j">
 <h1>-j 选项<a class="headerlink" href="#j" title="永久链接至标题">¶</a></h1>
 <p><strong>-j</strong> 选项用于控制球面上两点间距离的计算方式。其语法为：</p>
 <p><strong>-j</strong><strong>e</strong>|<strong>f</strong>|<strong>g</strong></p>
@@ -262,7 +258,7 @@
 <li><p><strong>-jf</strong> 使用Flat Earth公式计算球面距离。此种方式计算速度快但精度低</p></li>
 <li><p><strong>-je</strong> 使用测地公式计算球面距离，计算距离时考虑了地球椭率。此种方式计算速度慢但精度最高。</p></li>
 </ul>
-<section id="flat-earth">
+<div class="section" id="flat-earth">
 <h2>Flat Earth距离<a class="headerlink" href="#flat-earth" title="永久链接至标题">¶</a></h2>
 <p>地球上任意两点 A 和 B 的 Flat Earth 距离计算公式：</p>
 <div class="math notranslate nohighlight">
@@ -271,8 +267,8 @@
 <span class="math notranslate nohighlight">\(\theta\)</span> 是纬度，
 <span class="math notranslate nohighlight">\(\Delta \lambda = \lambda_A - \lambda_B\)</span> 是经度差。式中地理坐标的单位均是弧度，且需要考虑到跨越经度的周期性问题。</p>
 <p>该方法的特点是计算速度快但精度不高，适用于纬度相差不大且对计算效率要求不高的情况。</p>
-</section>
-<section id="id1">
+</div>
+<div class="section" id="id1">
 <h2>大圆路径距离<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>该方法将地球近似为一个半径为R的球，地球上任意两点 A 和 B 的大圆路径距离可以用
 <a class="reference external" href="https://en.wikipedia.org/wiki/Haversine_formula">Haversine 公式</a> 计算：</p>
@@ -286,8 +282,8 @@
 <li><p><a class="reference internal" href="../../conf/proj/#term-PROJ_MEAN_RADIUS"><span class="xref std std-term">PROJ_MEAN_RADIUS</span></a> 设置地球平均半径的计算方式</p></li>
 <li><p><a class="reference internal" href="../../conf/proj/#term-PROJ_AUX_LATITUDE"><span class="xref std std-term">PROJ_AUX_LATITUDE</span></a> 指定将大地纬度转换为多个适合球状近似的辅助纬度中的其中一个（仅当 <a class="reference internal" href="../../conf/proj/#term-PROJ_ELLIPSOID"><span class="xref std std-term">PROJ_ELLIPSOID</span></a> 不为 <strong>sphere</strong> 时有效）</p></li>
 </ul>
-</section>
-<section id="id2">
+</div>
+<div class="section" id="id2">
 <h2>测地距离<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>地球上两点间的精确距离可以用 Vincenty (1975) 的完全椭球公式计算。该方法计算得到的距离精度最高精确到 0.5 毫米，同时也是计算速度最慢的方式。</p>
 <p>如下参数可以控制大圆路径的计算细节：</p>
@@ -298,8 +294,8 @@
 <li><p><a class="reference internal" href="../../conf/proj/#term-PROJ_GEODESIC"><span class="xref std std-term">PROJ_GEODESIC</span></a>: 设置完全椭球公式。默认为 Vincenty，还可以设置为 <strong>Rudoe</strong>
 （GMT4所使用的计算公式）或 <strong>Andoyer</strong> （近似公式，精确到10米量级）。</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -338,9 +334,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>颜色 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/basis/color.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -46,7 +46,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="画笔" href="../pen/" />
-    <link rel="prev" title="单位" href="../unit/" /> 
+    <link rel="prev" title="单位" href="../unit/" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,39 +64,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -102,14 +99,14 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../">GMT基础</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../paper/">画布</a></li>
@@ -130,12 +127,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../text/">文字</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../special-character/">特殊字符</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../escape-character/">转义序列</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../vector/">绘制矢量/箭头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector/">矢量/箭头</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../line/">线条属性</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../anchor/">锚点</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../embellishment/">绘制修饰物</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../embellishment/">修饰物</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../io-format/">数据类型</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../input-files/">寻找输入文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../input-files/">输入文件的搜索目录</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -150,10 +147,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -165,15 +163,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -231,7 +227,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/basis/color.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/basis/color.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -245,7 +241,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="index-0">
+  <div class="section" id="index-0">
 <span id="id1"></span><h1>颜色<a class="headerlink" href="#index-0" title="永久链接至标题">¶</a></h1>
 <p>既然是绘图，丰富的颜色是必须的。GMT中可以通过五种不同的方式来指定颜色，即：</p>
 <ol class="arabic simple">
@@ -255,7 +251,7 @@
 <li><p>CMYK 值</p></li>
 <li><p>灰度值</p></li>
 </ol>
-<section id="id2">
+<div class="section" id="id2">
 <h2>颜色名<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>通过颜色名指定颜色是最直观的方式了。常见的颜色如 <strong>white</strong>、
 <strong>black</strong>、<strong>red</strong>、<strong>orange</strong>、<strong>yellow</strong>、<strong>green</strong>、
@@ -265,16 +261,16 @@
 <p>所有的颜色名都是不区分大小写的，所以 <strong>lightblue</strong>、<strong>LIGHTBLUE</strong>
 或者 <strong>LightBlue</strong> 都是合法的颜色名。</p>
 <p>GMT 支持通过颜色名指定663种颜色。下图中列出了GMT支持的所有颜色名及其对应的RGB值。</p>
-<figure class="align-center" id="color-list">
+<div class="figure align-center" id="color-list">
 <a class="reference internal image-reference" href="../../_images/GMT_RGBchart_a4.png"><img alt="../../_images/GMT_RGBchart_a4.png" src="../../_images/GMT_RGBchart_a4.png" style="width: 100%;" /></a>
-</figure>
+</div>
 <p><strong>GMT颜色表下载：</strong>
 <a class="reference download internal" download="" href="../../_downloads/7d186b4f20c9a9d96312f40fadd1f09a/GMT_RGBchart_a4.png"><code class="xref download docutils literal notranslate"><span class="pre">A4</span> <span class="pre">PNG格式</span></code></a> |
 <a class="reference download internal" download="" href="../../_downloads/07c0a3c3515887f10e0e531e61168050/GMT_RGBchart_a4.pdf"><code class="xref download docutils literal notranslate"><span class="pre">A4</span> <span class="pre">PDF格式</span></code></a> |
 <a class="reference download internal" download="" href="../../_downloads/eb3ead8a7b2b37452f85d3bdc9e49a4d/GMT_RGBchart_letter.png"><code class="xref download docutils literal notranslate"><span class="pre">USLetter</span> <span class="pre">PNG格式</span></code></a> |
 <a class="reference download internal" download="" href="../../_downloads/69fbf0effcdeb985e39bce6fb0bca025/GMT_RGBchart_letter.pdf"><code class="xref download docutils literal notranslate"><span class="pre">USLetter</span> <span class="pre">PDF格式</span></code></a></p>
-</section>
-<section id="rgb">
+</div>
+<div class="section" id="rgb">
 <h2>RGB<a class="headerlink" href="#rgb" title="永久链接至标题">¶</a></h2>
 <p>即三原色光模型，或又称RGB颜色模型，是一种加色模型，将红（<strong>R</strong>ed）、绿（<strong>G</strong>reen）、蓝（<strong>B</strong>lue）三原色的色光以不同的比例相加，以产生多种多样的色光。</p>
 <p>GMT中可以通过 <em>r</em>/<em>g</em>/<em>b</em> 的格式来指定RGB颜色，其中 <em>r</em>、<em>g</em>、<em>b</em>
@@ -288,8 +284,8 @@
 <li><p><strong>0/0/255</strong>：蓝色；</p></li>
 </ul>
 <p>RGB颜色除了可以用上面的表示法之外，还可以用HTML中常用的表示法 <strong>#</strong><em>RRGGBB</em>，即分别用两位的十六进制数字表示每个颜色通道，0对应的16进制是 <strong>00</strong>，255对应的16进制是 <strong>FF</strong>。例如 <strong>#000000</strong> 即黑色，<strong>#FF0000</strong> 即红色。十六进制数用大小写表示均可。</p>
-</section>
-<section id="hsv">
+</div>
+<div class="section" id="hsv">
 <h2>HSV<a class="headerlink" href="#hsv" title="永久链接至标题">¶</a></h2>
 <p>通过 <em>h</em>-<em>s</em>-<em>v</em> 格式指定颜色，其中HSV分别代表色相（<strong>H</strong>ue）、饱和度（<strong>S</strong>aturation）和明度（<strong>V</strong>alue），三者之间用连字号 <code class="docutils literal notranslate"><span class="pre">-</span></code> 分开。</p>
 <ul class="simple">
@@ -298,8 +294,8 @@
 <li><p>明度（<strong>V</strong>）是色彩的亮度，取值范围为0（dark）到1（light）。</p></li>
 </ul>
 <p>例如 <strong>200-0.1-0.1</strong>。</p>
-</section>
-<section id="cmyk">
+</div>
+<div class="section" id="cmyk">
 <h2>CMYK<a class="headerlink" href="#cmyk" title="永久链接至标题">¶</a></h2>
 <p>印刷四分色模式，是彩色印刷时采用的一种套色模式，利用色料的三原色混色原理，加上黑色油墨，共计四种颜色混合叠加，形成所谓“全彩印刷”。四种标准颜色是：</p>
 <ul class="simple">
@@ -310,8 +306,8 @@
 </ul>
 <p>GMT中可以通过 <em>c</em>/<em>m</em>/<em>y</em>/<em>k</em>的方式指定CMYK格式的颜色。<em>c</em>、<em>m</em>、<em>y</em>、
 <em>k</em> 的取值范围均为 0 到 100，用反斜线 <code class="docutils literal notranslate"><span class="pre">/</span></code> 分开，例如 <strong>20/30/40/40</strong>。</p>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h2>灰色<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>灰色是常见的一种颜色，而灰色又可以根据灰的不同程度细分为不同的灰色。指定灰色的办法很简单，用一个数值表示灰度即可，其取值范围为0到255。例如 0 表示黑色，255 表示白色，128 表示灰色。</p>
 <p>除了用灰度表示之外，灰色还可以用前面提到的几种形式表示：</p>
@@ -323,8 +319,8 @@
 <p>GMT自定义了多个颜色名来表示不同程度的灰色。除了前面说过的 <strong>gray</strong>、<strong>lightgray</strong> 和 <strong>darkgray</strong> 之外，还有 <strong>gray0</strong>、<strong>gray1</strong> 一直到 <strong>gray100</strong>。其中 <strong>gray0</strong> 即黑色，<strong>gray100</strong> 即白色。</p>
 </li>
 </ol>
-</section>
-<section id="id4">
+</div>
+<div class="section" id="id4">
 <h2>透明色<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>每一种颜色，都可以额外指定其透明度。</p>
 <p>GMT中可以通过在颜色后加上 <strong>&#64;</strong> 再加上透明度来得到不同程度的透明色。透明度的取值范围是0到100，0表示不透明，100表示全透明。</p>
@@ -333,8 +329,8 @@
 <p class="admonition-title">注解</p>
 <p>PS格式不支持透明色。</p>
 </div>
-</section>
-<section id="id5">
+</div>
+<div class="section" id="id5">
 <h2>颜色小结<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>GMT中可以用五种方法指定颜色，分别是：</p>
 <ul class="simple">
@@ -344,15 +340,15 @@
 <li><p>CMYK值：<strong>0.2/0.3/0.4/0.5</strong></p></li>
 <li><p>灰度：<strong>30</strong></p></li>
 </ul>
-</section>
-<section id="id6">
+</div>
+<div class="section" id="id6">
 <h2>小练习<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>下面的命令在底图中心绘制了一个红色圆圈，试着将 <code class="docutils literal notranslate"><span class="pre">-Gred</span></code> 中的 <strong>red</strong> 改为其它颜色以理解这一节的内容:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">5</span> <span class="m">5</span> <span class="p">|</span> gmt plot -JX10c/10c -R0/10/0/10 -Baf -Sc3c -Gred -pdf colors
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -391,9 +387,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

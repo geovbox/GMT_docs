@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>project &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/module/project.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -46,7 +46,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="psconvert" href="../psconvert/" />
-    <link rel="prev" title="polar" href="../polar/" /> 
+    <link rel="prev" title="polar" href="../polar/" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,39 +64,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -102,14 +99,14 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -129,6 +126,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../clip/">clip</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../coast/">coast</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../colorbar/">colorbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contour/">contour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../coupe/">coupe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/">docs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../end/">end</a></li>
@@ -146,9 +144,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../gmtset/">gmtset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gmtsimplify/">gmtsimplify</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gmtwhich/">gmtwhich</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grd2cpt/">grd2cpt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grd2xyz/">grd2xyz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grdblend/">grdblend</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grdclip/">grdclip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grdcontour/">grdcontour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grdconvert/">grdconvert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grdcut/">grdcut</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grdedit/">grdedit</a></li>
@@ -163,6 +163,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../grdtrack/">grdtrack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grdtrend/">grdtrend</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grdvector/">grdvector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grdview/">grdview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grdvolume/">grdvolume</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../histogram/">histogram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../image/">image</a></li>
@@ -187,6 +188,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../solar/">solar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../spectrum1d/">spectrum1d</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../subplot/">subplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../surface/">surface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ternary/">ternary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../text/">text</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../velo/">velo</a></li>
@@ -194,10 +196,11 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -209,15 +212,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -275,7 +276,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/module/project.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/module/project.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -289,7 +290,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="project">
+  <div class="section" id="project">
 <span id="index-0"></span><h1>project<a class="headerlink" href="#project" title="永久链接至标题">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">官方文档</dt>
@@ -325,21 +326,19 @@
 <p>可以使用 <code class="docutils literal notranslate"><span class="pre">-F</span></code> 选项设置要输出哪些变量。</p>
 <p>下面详细解释一下这些变量的物理意义。</p>
 <p><a class="reference download internal" download="" href="../../_downloads/1cb0f2df5c493eeeb29d3595ab854ba3/project-gmtplot-0.sh"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">Code</span></code></a></p>
-<figure class="align-center" id="id4">
+<div class="figure align-center" id="id4">
 <a class="reference internal image-reference" href="../../_images/project-gmtplot-0.png"><img alt="../../_images/project-gmtplot-0.png" src="../../_images/project-gmtplot-0.png" style="width: 60%;" /></a>
-<figcaption>
-<p><span class="caption-text">project 示意图</span><a class="headerlink" href="#id4" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-text">project 示意图</span><a class="headerlink" href="#id4" title="永久链接至图片">¶</a></p>
+</div>
 <p>图中的红点就是给出的点(x,y)。绿色粗线为测线。测线上有 3 个点，蓝色和绿色两个点为测线的起点和终点。以测线起点为原点，以测线为P轴，在测线起点按右手螺旋法则做垂直于P轴的Q轴，构成测线坐标系。点(x,y)在测线坐标系的坐标即为(p,q)。紫色点为点(x,y)在测线上的投影点，坐标为(r,s)。</p>
-<section id="id1">
+<div class="section" id="id1">
 <h2>必选选项<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">-C&lt;cx&gt;/&lt;cy&gt;</span></code></dt><dd><p>对于定义1和2而言，该选项指定测线的起点坐标；对于定义3而言，该选项指定了旋转坐标下零经线所穿过的点</p>
 </dd>
 </dl>
-</section>
-<section id="id2">
+</div>
+<div class="section" id="id2">
 <h2>可选选项<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">-A&lt;azimuth&gt;</span></code></dt><dd><p>定义1中用于指定测线的方位角</p>
@@ -369,8 +368,8 @@
 <dt><code class="docutils literal notranslate"><span class="pre">-W&lt;w_min&gt;/&lt;w_max&gt;</span></code></dt><dd><p>仅坐标 <code class="docutils literal notranslate"><span class="pre">q</span></code> 在 <code class="docutils literal notranslate"><span class="pre">&lt;w_min&gt;</span></code> 和 <code class="docutils literal notranslate"><span class="pre">&lt;w_max&gt;</span></code> 范围内的数据才会被投影到测线上。</p>
 </dd>
 </dl>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h2>示例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>指定测线的起点和终点，在测线上每隔10千米生成一个点:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt project -C-50/10 -E-10/30 -G10 -Q &gt; great_circle_points.xyp
@@ -388,8 +387,8 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt project -C120/25 -A45 -L0/123 -G123 -Q <span class="p">|</span> tail -1
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -428,9 +427,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

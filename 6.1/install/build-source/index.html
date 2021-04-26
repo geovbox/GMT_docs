@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Linux/macOS 下编译GMT源码 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/install/build-source.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -46,7 +46,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="版本迁移" href="../../migrating/" />
-    <link rel="prev" title="跨平台GMT安装方案" href="../cross-platform/" /> 
+    <link rel="prev" title="跨平台GMT安装方案" href="../cross-platform/" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,39 +64,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -102,7 +99,7 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../">安装</a><ul class="current">
@@ -125,7 +122,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -140,10 +137,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -155,15 +153,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -221,7 +217,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/install/build-source.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/install/build-source.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -235,12 +231,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="linux-macos-gmt">
+  <div class="section" id="linux-macos-gmt">
 <h1>Linux/macOS 下编译GMT源码<a class="headerlink" href="#linux-macos-gmt" title="永久链接至标题">¶</a></h1>
 <p>这一节介绍如何在 Linux 或者 macOS 下编译GMT源代码。Windows用户如果想编译
 GMT源码请参考GMT官方
 <a class="reference external" href="https://github.com/GenericMappingTools/gmt/blob/master/BUILDING.md">编译指南</a>。</p>
-<section id="id2">
+<div class="section" id="id2">
 <h2>编译及运行依赖<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>GMT的编译及运行需要如下软件：</p>
 <ul class="simple">
@@ -260,8 +256,8 @@ GMT源码请参考GMT官方
 <li><p><a class="reference external" href="http://www.graphicsmagick.org">GraphicsMagick</a>: 生成GIF格式的动画</p></li>
 <li><p><a class="reference external" href="http://www.ffmpeg.org/">FFmpeg</a>: 生成MP4格式的动画</p></li>
 </ul>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h2>安装依赖软件<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>对于Ubuntu/Debian:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt update
@@ -297,8 +293,8 @@ brew install cmake curl netcdf
 brew install ghostscript gdal pcre2 glib fftw graphicsmagick ffmpeg
 </pre></div>
 </div>
-</section>
-<section id="id4">
+</div>
+<div class="section" id="id4">
 <h2>下载源码及数据<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>编译GMT需要下载如下三个文件：</p>
 <ol class="arabic simple">
@@ -306,8 +302,8 @@ brew install ghostscript gdal pcre2 glib fftw graphicsmagick ffmpeg
 <li><p>全球海岸线数据GSHHG：<a class="reference external" href="http://mirrors.ustc.edu.cn/gmt/gshhg-gmt-2.3.7.tar.gz">gshhg-gmt-2.3.7.tar.gz</a></p></li>
 <li><p>全球数字图表DCW：<a class="reference external" href="http://mirrors.ustc.edu.cn/gmt/dcw-gmt-1.1.4.tar.gz">dcw-gmt-1.1.4.tar.gz</a></p></li>
 </ol>
-</section>
-<section id="gmt">
+</div>
+<div class="section" id="gmt">
 <h2>安装GMT<a class="headerlink" href="#gmt" title="永久链接至标题">¶</a></h2>
 <p>将下载的三个压缩文件放在同一个目录里，按照如下步骤进行安装：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 解压三个压缩文件</span>
@@ -416,8 +412,8 @@ $ sudo make -j install
 <p class="admonition-title">注解</p>
 <p><strong>-j</strong> 选项可以实现并行编译以减少编译时间。但据用户报告，某些Ubuntu发行版下使用 <strong>-j</strong> 选项会导致编译过程卡死。Ubuntu用户建议在上面的两条命令中去掉 <strong>-j</strong> 选项。</p>
 </div>
-</section>
-<section id="id5">
+</div>
+<div class="section" id="id5">
 <h2>修改环境变量<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>打开终端，使用如下命令用文件编辑器打开Bash配置文件:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Linux 用户</span>
@@ -439,22 +435,22 @@ open ~/.bash_profile
 <li><p>第二个命令修改 GMT6 的 bin 目录加入到 <strong>PATH</strong> 中，使得终端可以找到GMT命令</p></li>
 <li><p>第三个命令将 GMT6 的 lib 目录加入到动态链接库路径中。通常，32位系统的路径为 <strong>lib</strong>，64位系统的路径为 <strong>lib64</strong></p></li>
 </ul>
-</section>
-<section id="id6">
+</div>
+<div class="section" id="id6">
 <h2>测试是否安装成功<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>重新打开一个终端，键入如下命令，若正确显示GMT版本号，则表示安装成功:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gmt --version
 <span class="m">6</span>.1.1
 </pre></div>
 </div>
-</section>
-<section id="id7">
+</div>
+<div class="section" id="id7">
 <h2>升级/卸载GMT<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>按照上面的配置，GMT会被安装到 <code class="file docutils literal notranslate"><span class="pre">/opt/GMT-6.1.1</span></code> 目录下。若想要卸载GMT，可以直接删除整个 <code class="file docutils literal notranslate"><span class="pre">/opt/GMT-6.1.1</span></code> 即可。</p>
 <p>GMT不支持自动更新，因而若想要升级GMT，通常建议先卸载GMT，然后再下载新版源码并按照上面的步骤重新编译安装。</p>
 <p>当然，高级用户也可以同时安装多个版本的GMT，但需要注意环境变量 <strong>PATH</strong> 的设置。</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -493,9 +489,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

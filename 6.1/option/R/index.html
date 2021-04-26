@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>-R 选项 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/option/R.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
         <script async="async" src="https://cdn.bootcss.com/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
@@ -47,7 +47,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="-J 选项" href="../J/" />
-    <link rel="prev" title="标准选项" href="../" /> 
+    <link rel="prev" title="标准选项" href="../" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -59,39 +65,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -103,14 +100,14 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -161,10 +158,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -176,15 +174,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -242,7 +238,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/option/R.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/option/R.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -256,10 +252,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="r">
+  <div class="section" id="r">
 <h1>-R 选项<a class="headerlink" href="#r" title="永久链接至标题">¶</a></h1>
 <p><strong>-R</strong> 选项用于指定要绘制的数据范围或地图区域。该选项的参数可以用五种方式指定，同时支持六种不同类型的数据坐标。</p>
-<section id="id1">
+<div class="section" id="id1">
 <h2>五种方式<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>可以用五种方式指定数据范围。</p>
 <ol class="arabic">
@@ -290,15 +286,13 @@
 </li>
 </ol>
 <p><a class="reference download internal" download="" href="../../_downloads/57fb8ccfe96b1e37e2220f1c52524f84/R-gmtplot-0.sh"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">Code</span></code></a></p>
-<figure class="align-center" id="id6">
+<div class="figure align-center" id="id6">
 <img alt="../../_images/R-gmtplot-0.png" src="../../_images/R-gmtplot-0.png" />
-<figcaption>
-<p><span class="caption-text"><strong>-R</strong> 选项指定数据范围。</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-text"><strong>-R</strong> 选项指定数据范围。</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
+</div>
 <p>(左) 指定每个维度的极值；(右) 指定左下角和右上角的坐标。</p>
-</section>
-<section id="id2">
+</div>
+<div class="section" id="id2">
 <h2>六种坐标<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>GMT的坐标轴可以是多种类型，比如地图的经纬度轴、一般的笛卡尔轴、时间轴等等。不同类型的轴需要用不同类型的数据来指定数据的范围。
 <strong>-R</strong> 选项可以使用六种不同的方式来指定数据范围：</p>
@@ -312,7 +306,7 @@
 </ol>
 <p>其中地理坐标、浮点坐标、绝对时间坐标和相对时间坐标在 <a class="reference internal" href="../../basis/io-format/"><span class="doc">数据类型</span></a>
 中已经介绍过，此处不再赘述。</p>
-<section id="id3">
+<div class="section" id="id3">
 <h3>地理坐标<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <p>对于常用的地图范围，GMT提供了两个简化写法：</p>
 <ul class="simple">
@@ -331,24 +325,24 @@
 <p class="admonition-title">注解</p>
 <p>推荐使用 <strong>-fg</strong> 这种方式来指定输入数据的类型。</p>
 </div>
-</section>
-<section id="id4">
+</div>
+<div class="section" id="id4">
 <h3>投影后坐标<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <p>地理坐标可以通过选择投影方式投影成笛卡尔坐标，通过在区域范围后加上 <strong>+u</strong><em>unit</em>
 来表明这是一个经过投影的地理坐标。</p>
 <p>例如 <strong>-R-200/200/-300/300+uk</strong> 表示位于投影中心 <strong>(0,0)</strong> 处的一个 <strong>400km x 600km</strong>
 的矩形区域。这些坐标在GMT内部会被转换成区域左下角和右上角的地理坐标。当你想要用投影单位指定区域时用这种方式会比较方便（例如UTM meters）。</p>
-</section>
-<section id="id5">
+</div>
+<div class="section" id="id5">
 <h3>弧度坐标<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <p>对于以弧度为单位的数据而言，通常会需要指定数据范围是 <span class="math notranslate nohighlight">\(\pi\)</span> 的倍数或分数，此时可以使用 [<strong>+</strong>|<strong>-</strong>][<em>s</em>]<strong>pi</strong>[<em>f</em>] 形式，其中 <em>s</em> 和 <em>f</em> 可以是任意整数或浮点数，
 <em>s</em> 表示 <strong>scale</strong> 即倍数，<em>f</em> 表示 <strong>fraction</strong> 即分数。</p>
 <p>例如 <strong>-2pi/2pi3/0/1</strong> 表示X轴的数据范围是 <span class="math notranslate nohighlight">\(-2\pi\)</span> 到 <span class="math notranslate nohighlight">\(2/3\pi\)</span>，即相当于-360度到120度。</p>
 <p>当使用这种形式时，程序只在 <span class="math notranslate nohighlight">\(\pi\)</span> 相关的值处进行标注，即 n 倍的 <span class="math notranslate nohighlight">\(\pi\)</span>，
 <span class="math notranslate nohighlight">\(1.5\pi\)</span> 以及 3/4，2/3，1/2，1/3，1/4倍的 <span class="math notranslate nohighlight">\(\pi\)</span>。</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
@@ -387,9 +381,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

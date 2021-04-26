@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>-Jx：笛卡尔变换 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/proj/Jx.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
         <script async="async" src="https://cdn.bootcss.com/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
@@ -47,7 +47,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="-Jp：极坐标线性投影" href="../Jp/" />
-    <link rel="prev" title="地图投影" href="../" /> 
+    <link rel="prev" title="地图投影" href="../" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -59,39 +65,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -103,14 +100,14 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -164,10 +161,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -179,15 +177,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -245,7 +241,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/proj/Jx.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/proj/Jx.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -259,7 +255,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="jx">
+  <div class="section" id="jx">
 <h1>-Jx：笛卡尔变换<a class="headerlink" href="#jx" title="永久链接至标题">¶</a></h1>
 <p>GMT中笛卡尔坐标变换分为三类：</p>
 <ul class="simple">
@@ -272,7 +268,7 @@
 gmt math -T0/100/10 T <span class="nv">SQRT</span> <span class="o">=</span> sqrt10.txt
 </pre></div>
 </div>
-<section id="id1">
+<div class="section" id="id1">
 <h2>笛卡尔线性坐标<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>笛卡尔线性坐标可以通过四种方式指定：</p>
 <ul class="simple">
@@ -287,7 +283,7 @@ gmt math -T0/100/10 T <span class="nv">SQRT</span> <span class="o">=</span> sqrt
 <li><p>地理坐标</p></li>
 <li><p>日期时间坐标</p></li>
 </ol>
-<section id="id2">
+<div class="section" id="id2">
 <h3>常规浮点数坐标<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
 <p>对于常规的浮点型数据而言，选择笛卡尔线性坐标意味着对输入坐标做简单的线性变换
 <span class="math notranslate nohighlight">\(u' = a u + b\)</span>，即将输入坐标 <span class="math notranslate nohighlight">\(u\)</span> 投影到纸张坐标 <span class="math notranslate nohighlight">\(u'\)</span>。</p>
@@ -298,19 +294,17 @@ gmt plot -St0.1i -N -Gred -Wfaint sqrt10.txt
 gmt end
 </pre></div>
 </div>
-<figure class="align-center" id="id7">
+<div class="figure align-center" id="id7">
 <a class="reference internal image-reference" href="../../_images/Jx-gmtplot-0.png"><img alt="../../_images/Jx-gmtplot-0.png" src="../../_images/Jx-gmtplot-0.png" style="width: 60%;" /></a>
-<figcaption>
-<p><span class="caption-text">笛卡尔坐标的线性变换</span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-text">笛卡尔坐标的线性变换</span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
+</div>
 <p>说明：</p>
 <ul class="simple">
 <li><p>正常情况下，X轴向右递增，Y轴向上递增。有些时候可能需要X轴向左递增或者Y轴向下递增（比如Y轴是深度时），只要将轴的比例尺或者轴长度设置为负值即可。</p></li>
 <li><p>若指定X轴的长度，并设置Y轴的长度为0，则会根据X轴的长度和范围计算出X轴的比例尺，并对Y轴使用相同的比例尺，进而计算出Y轴的长度，即 <strong>-JX10c/0c</strong>，<strong>-JX0c/10c</strong> 同理。</p></li>
 </ul>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h3>地理坐标<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <p>理论上地理坐标应该用地理投影画，而不应该用线性投影，但是有时候可能的确需要使用线性投影。用线性投影绘制地理坐标时会碰到一个问题，即经度有一个360度的周期性。因而在使用线性投影时需要通知GMT数据实际上是地理坐标。有三种办法：</p>
 <ol class="arabic simple">
@@ -325,14 +319,12 @@ gmt coast -Rg-55/305/-90/90 -Jx0.014i -Bagf -BWSen -Dc -A1000 -Glightbrown -Wthi
 gmt end
 </pre></div>
 </div>
-<figure class="align-center" id="id8">
+<div class="figure align-center" id="id8">
 <a class="reference internal image-reference" href="../../_images/Jx-gmtplot-1.png"><img alt="../../_images/Jx-gmtplot-1.png" src="../../_images/Jx-gmtplot-1.png" style="width: 60%;" /></a>
-<figcaption>
-<p><span class="caption-text">地理坐标的线性变换</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="id4">
+<p class="caption"><span class="caption-text">地理坐标的线性变换</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id4">
 <h3>日期时间坐标<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <p>时间日期坐标也可以用线性投影绘制，此时需要告诉GMT输入坐标是绝对时间还是相对时间。</p>
 <p>可以通过在 <strong>-Jx</strong> 或 <strong>-JX</strong> 的最后加上 <strong>T</strong> 或 <strong>t</strong>，不过实际上 <strong>-R</strong>
@@ -343,15 +335,13 @@ gmt basemap -R2001-9-24T/2001-9-29T/T07:0/T15:0 -JX4i/-2i -Bxa1Kf1kg1d -Bya1Hg1h
 gmt end
 </pre></div>
 </div>
-<figure class="align-center" id="id9">
+<div class="figure align-center" id="id9">
 <a class="reference internal image-reference" href="../../_images/Jx-gmtplot-2.png"><img alt="../../_images/Jx-gmtplot-2.png" src="../../_images/Jx-gmtplot-2.png" style="width: 60%;" /></a>
-<figcaption>
-<p><span class="caption-text">日期时间坐标的线性变换</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
-</section>
-</section>
-<section id="id5">
+<p class="caption"><span class="caption-text">日期时间坐标的线性变换</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
 <h2>笛卡尔对数投影<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>对数变换 <span class="math notranslate nohighlight">\(\log_{10}\)</span> 的数学表示是 <span class="math notranslate nohighlight">\(u' = a \log_{10}(u) + b\)</span> ，可以通过在比例尺或轴长度后加上 <strong>l</strong> 指定。</p>
 <p>下面的命令绘制了一个X轴为对数轴Y轴为线性轴的图。</p>
@@ -361,15 +351,13 @@ gmt plot -Ss0.1i -N -Gred -W -h sqrt10.txt
 gmt end
 </pre></div>
 </div>
-<figure class="align-center" id="id10">
+<div class="figure align-center" id="id10">
 <a class="reference internal image-reference" href="../../_images/Jx-gmtplot-3.png"><img alt="../../_images/Jx-gmtplot-3.png" src="../../_images/Jx-gmtplot-3.png" style="width: 60%;" /></a>
-<figcaption>
-<p><span class="caption-text">对数投影</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-text">对数投影</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</div>
 <p>注意：若想要X轴和Y轴都使用对数投影，且X轴和Y轴比例尺不同，则必须在指定每个轴的比例尺时分别加上 <strong>l</strong>，例如 <strong>-JX10cl/6cl</strong>。</p>
-</section>
-<section id="id6">
+</div>
+<div class="section" id="id6">
 <h2>笛卡尔指数投影<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>指数投影的函数表示是 <span class="math notranslate nohighlight">\(u' = a u^b + c\)</span> ，使得用户可以绘制类似
 <span class="math notranslate nohighlight">\(x^p\)</span> - <span class="math notranslate nohighlight">\(y^q\)</span> 这样的函数关系。如果选 p=0.5、q=1
@@ -381,14 +369,12 @@ gmt plot -Sc0.075i -Ggreen -W sqrt10.txt
 gmt end
 </pre></div>
 </div>
-<figure class="align-center" id="id11">
+<div class="figure align-center" id="id11">
 <a class="reference internal image-reference" href="../../_images/Jx-gmtplot-4.png"><img alt="../../_images/Jx-gmtplot-4.png" src="../../_images/Jx-gmtplot-4.png" style="width: 60%;" /></a>
-<figcaption>
-<p><span class="caption-text">指数变换</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
-</section>
-</section>
+<p class="caption"><span class="caption-text">指数变换</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
 
 
            </div>
@@ -427,9 +413,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

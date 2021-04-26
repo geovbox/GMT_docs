@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>FORMAT参数 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/conf/format.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -46,7 +46,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="IO参数" href="../io/" />
-    <link rel="prev" title="DIR参数" href="../dir/" /> 
+    <link rel="prev" title="DIR参数" href="../dir/" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,39 +64,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -102,14 +99,14 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -145,10 +142,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -160,15 +158,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -226,7 +222,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/conf/format.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/conf/format.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -240,10 +236,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="format">
+  <div class="section" id="format">
 <h1>FORMAT参数<a class="headerlink" href="#format" title="永久链接至标题">¶</a></h1>
 <p>下面列出所有与格式相关的参数，通常包括输入格式、输出格式和绘图格式三类，参数的默认值在中括号内列出。</p>
-<section id="id1">
+<div class="section" id="id1">
 <h2>日期的输入/输出/绘图格式<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <dl class="glossary">
 <dt id="term-FORMAT_DATE_IN"><strong>FORMAT_DATE_IN</strong><a class="headerlink" href="#term-FORMAT_DATE_IN" title="Permalink to this term">¶</a></dt><dd><p>输入数据中日期字符串的格式模板 [<strong>yyyy-mm-dd</strong>]</p>
@@ -278,8 +274,8 @@
 <a class="reference internal" href="#term-FORMAT_TIME_PRIMARY_MAP"><span class="xref std std-term">FORMAT_TIME_PRIMARY_MAP</span></a> 和 <a class="reference internal" href="#term-FORMAT_TIME_SECONDARY_MAP"><span class="xref std std-term">FORMAT_TIME_SECONDARY_MAP</span></a> 控制。</p>
 </dd>
 </dl>
-</section>
-<section id="id2">
+</div>
+<div class="section" id="id2">
 <h2>时间的输入/输出/绘图格式<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <dl class="glossary">
 <dt id="term-FORMAT_CLOCK_OUT"><strong>FORMAT_CLOCK_OUT</strong><a class="headerlink" href="#term-FORMAT_CLOCK_OUT" title="Permalink to this term">¶</a></dt><dd><p>输出时间字符串时所使用的格式 [<strong>hh:mm:ss</strong>]</p>
@@ -300,8 +296,8 @@
 <p>见 <a class="reference internal" href="#term-FORMAT_CLOCK_OUT"><span class="xref std std-term">FORMAT_CLOCK_OUT</span></a> 的说明。</p>
 </dd>
 </dl>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h2>地理坐标的输出/绘图格式<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <dl class="glossary">
 <dt id="term-FORMAT_GEO_OUT"><strong>FORMAT_GEO_OUT</strong><a class="headerlink" href="#term-FORMAT_GEO_OUT" title="Permalink to this term">¶</a></dt><dd><p>控制地理坐标数据的输出格式 [<strong>D</strong>]</p>
@@ -344,8 +340,8 @@
 <p>格式的具体定义参考 <a class="reference internal" href="#term-FORMAT_GEO_OUT"><span class="xref std std-term">FORMAT_GEO_OUT</span></a>，但具体格式会进一步由 <strong>-B</strong> 选项控制。除此之外，还可以在格式后面加上 <strong>A</strong> 表示绘制坐标的绝对值。</p>
 </dd>
 </dl>
-</section>
-<section id="id4">
+</div>
+<div class="section" id="id4">
 <h2>浮点数的输出/绘图格式<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <dl class="glossary">
 <dt id="term-FORMAT_FLOAT_OUT"><strong>FORMAT_FLOAT_OUT</strong><a class="headerlink" href="#term-FORMAT_FLOAT_OUT" title="Permalink to this term">¶</a></dt><dd><p>双精度浮点数在输出时所使用的格式 [<strong>%.12lg</strong>]</p>
@@ -365,8 +361,8 @@
 <p>见 <a class="reference internal" href="#term-FORMAT_FLOAT_OUT"><span class="xref std std-term">FORMAT_FLOAT_OUT</span></a> 中的相关说明。</p>
 </dd>
 </dl>
-</section>
-<section id="id5">
+</div>
+<div class="section" id="id5">
 <h2>其它数据的绘图格式<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <dl class="glossary">
 <dt id="term-FORMAT_TIME_MAP"><strong>FORMAT_TIME_MAP</strong><a class="headerlink" href="#term-FORMAT_TIME_MAP" title="Permalink to this term">¶</a></dt><dd><p>同时设置 <a class="reference internal" href="#term-FORMAT_TIME_PRIMARY_MAP"><span class="xref std std-term">FORMAT_TIME_PRIMARY_MAP</span></a> 和 <a class="reference internal" href="#term-FORMAT_TIME_SECONDARY_MAP"><span class="xref std std-term">FORMAT_TIME_SECONDARY_MAP</span></a> 的值</p>
@@ -389,8 +385,8 @@
 解析，故而理论上可以包含任意文本。</p>
 </dd>
 </dl>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -429,9 +425,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

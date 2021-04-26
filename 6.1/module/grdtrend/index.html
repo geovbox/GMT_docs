@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>grdtrend &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/module/grdtrend.html"/>
   
 
   
@@ -38,7 +36,10 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdn.bootcss.com/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -46,7 +47,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="grdvector" href="../grdvector/" />
-    <link rel="prev" title="grdtrack" href="../grdtrack/" /> 
+    <link rel="prev" title="grdtrack" href="../grdtrack/" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,39 +65,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -102,14 +100,14 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -129,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../clip/">clip</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../coast/">coast</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../colorbar/">colorbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contour/">contour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../coupe/">coupe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/">docs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../end/">end</a></li>
@@ -146,9 +145,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../gmtset/">gmtset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gmtsimplify/">gmtsimplify</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gmtwhich/">gmtwhich</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grd2cpt/">grd2cpt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grd2xyz/">grd2xyz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grdblend/">grdblend</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grdclip/">grdclip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grdcontour/">grdcontour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grdconvert/">grdconvert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grdcut/">grdcut</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grdedit/">grdedit</a></li>
@@ -168,6 +169,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../grdvector/">grdvector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grdview/">grdview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grdvolume/">grdvolume</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../histogram/">histogram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../image/">image</a></li>
@@ -187,6 +189,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../solar/">solar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../spectrum1d/">spectrum1d</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../subplot/">subplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../surface/">surface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ternary/">ternary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../text/">text</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../velo/">velo</a></li>
@@ -194,10 +197,11 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -209,15 +213,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -275,7 +277,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/module/grdtrend.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/module/grdtrend.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -289,7 +291,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="grdtrend">
+  <div class="section" id="grdtrend">
 <span id="index-0"></span><h1>grdtrend<a class="headerlink" href="#grdtrend" title="永久链接至标题">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">官方文档</dt>
@@ -300,11 +302,9 @@
 </dd>
 </dl>
 <p>该命令会读取一个2D网格文件，并用最小二乘方法拟合一个低阶多项式趋势面。多项式趋势面的定义为：</p>
-<blockquote>
-<div><p>m1 + m2*x + m3*y + m4*x*y + m5*x*x + m6*y*y + m7*x*x*x +
-m8*x*x*y + m9*x*y*y + m10*y*y*y.</p>
-</div></blockquote>
-<section id="id1">
+<div class="math notranslate nohighlight">
+\[m_1 + m_2x + m_3y + m_4xy + m_5x^2 + m_6y^2 + m_7x^3 + m_8x^2y + m_9xy^2 + m_{10}y^3.\]</div>
+<div class="section" id="id1">
 <h2>必选选项<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">&lt;gridfile&gt;</span></code></dt><dd><p>2D网格文件名</p>
@@ -316,8 +316,8 @@ robust scale estimate多次迭代，给数据重新赋予权重，以得到一�
 不敏感的解。</p>
 </dd>
 </dl>
-</section>
-<section id="id2">
+</div>
+<div class="section" id="id2">
 <h2>可选选项<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">-D&lt;diff.nc&gt;</span></code></dt><dd><p>将残差（输入减去拟合）结果写到网格文件中</p>
@@ -327,8 +327,8 @@ robust scale estimate多次迭代，给数据重新赋予权重，以得到一�
 <dt><code class="docutils literal notranslate"><span class="pre">-W&lt;weight.nc&gt;</span></code></dt><dd><p>若 <code class="docutils literal notranslate"><span class="pre">&lt;weight.nc&gt;</span></code> 存在，则读取该文件，并求解一个有权重的最小二乘问题。默认为常规的最小二乘拟合。若 <code class="docutils literal notranslate"><span class="pre">-N</span></code> 选项中指定了robust拟合，则robust拟合中所使用的权重会写到文件 <code class="docutils literal notranslate"><span class="pre">&lt;weight.nc&gt;</span></code> 中。</p>
 </dd>
 </dl>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h2>示例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>从网格文件中移除线性趋势，并将结果写到残差文件中:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt grdtrend hawaii_topo.nc -N3 -Dhawaii_residual.nc
@@ -338,8 +338,8 @@ robust scale estimate多次迭代，给数据重新赋予权重，以得到一�
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt grdtrend hawaii_topo.nc -N10r -Thawaii_trend.nc -Whawaii_weight.nc -V
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -378,9 +378,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

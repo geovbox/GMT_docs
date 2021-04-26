@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>网格配准 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/grid/registration.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
         <script async="async" src="https://cdn.bootcss.com/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
@@ -47,7 +47,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="边界条件" href="../boundary-condition/" />
-    <link rel="prev" title="网格文件格式" href="../format/" /> 
+    <link rel="prev" title="网格文件格式" href="../format/" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -59,39 +65,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -103,14 +100,14 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -141,10 +138,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -156,15 +154,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -222,7 +218,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/grid/registration.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/grid/registration.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -236,26 +232,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="grid-registration">
+  <div class="section" id="grid-registration">
 <span id="id1"></span><h1>网格配准<a class="headerlink" href="#grid-registration" title="永久链接至标题">¶</a></h1>
 <p>GMT中的2D网格文件，在确定了网格范围和网格间隔后，网格线会出现在
 <span class="math notranslate nohighlight">\(x = x_{min}, x_{min} + x_{inc}, x_{min} + 2 \cdot x_{inc}, \ldots, x_{max}\)</span>
 和 <span class="math notranslate nohighlight">\(y = y_{min}, y_{min} + y_{inc}, y_{min} + 2 \cdot y_{inc}, \ldots, y_{max}\)</span> 处。而节点的位置有两种选择，即网格线配准（gridline registration）和像素配准（pixel registration）。GMT默认使用的是网格线配准方式。</p>
 <p><a class="reference download internal" download="" href="../../_downloads/2d17f0103fbd4df38ce35e39c47e226a/registration-gmtplot-0.sh"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">Code</span></code></a></p>
-<figure class="align-center" id="id6">
+<div class="figure align-center" id="id6">
 <a class="reference internal image-reference" href="../../_images/registration-gmtplot-0.png"><img alt="../../_images/registration-gmtplot-0.png" src="../../_images/registration-gmtplot-0.png" style="width: 75%;" /></a>
-<figcaption>
-<p><span class="caption-text">GMT网格配准方式</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-text">GMT网格配准方式</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
+</div>
 <p>（左）网格线配准；（右）像素配准。</p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p>大多数原始观测数据都采样网格线配准方式，而有时经过处理的数据会以像素配准方式发布。尽管两种配准方式可以互相转换，但转换过程中会降低Nyquist采样率，压制一些高频信息。因而如果你可以控制，应尽量避免配准转换。</p>
 </div>
-<section id="id2">
+<div class="section" id="id2">
 <h2>网格配准方式<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<section id="id3">
+<div class="section" id="id3">
 <h3>网格线配准<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <p>在网格线配准方式下，节点（图中黑色圆圈）中心位于网格线的交叉点处，节点的值代表了长宽为 <span class="math notranslate nohighlight">\(x_{inc} \cdot y_{inc}\)</span> 的单元（图中红色区域）内的平均值。这种情况下，节点数目与网格范围和间隔的关系为：</p>
 <div class="math notranslate nohighlight">
@@ -264,8 +258,8 @@ nx &amp; =  &amp;       (x_{max} - x_{min}) / x_{inc} + 1       \\
 ny &amp; =  &amp;       (y_{max} - y_{min}) / y_{inc} + 1
 \end{array}\end{split}\]</div>
 <p>左图中nx=ny=4。</p>
-</section>
-<section id="id4">
+</div>
+<div class="section" id="id4">
 <h3>像素配准<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <p>在像素配准方式下，节点（图中黑色圆圈）位于网格单元的中心，即网格点之间的区域，节点的值代表了每个单元（图中红色区域）内的平均值。在这种情况下，节点数目与网格范围和间隔的关系为：</p>
 <div class="math notranslate nohighlight">
@@ -274,20 +268,20 @@ nx &amp; =  &amp;       (x_{max} - x_{min}) / x_{inc}   \\
 ny &amp; =  &amp;       (y_{max} - y_{min}) / y_{inc}
 \end{array}\end{split}\]</div>
 <p>因而，对于相同的网格区域和网格间隔而言，像素配准比网格线配准要少一列和一行数据。右图中nx=ny=3。</p>
-</section>
-</section>
-<section id="id5">
+</div>
+</div>
+<div class="section" id="id5">
 <h2>配准方式转换<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>GMT提供了多种方式实现像素配准与网格配准的互相转换。</p>
 <p>一种是使用 <a class="reference internal" href="../../module/grdedit/"><span class="doc">grdedit</span></a> <strong>-T</strong> 选项将网格区域调整半个网格间隔并修改配准方式，该方法不改变原有数据点，但改变了网格区域。</p>
 <p>另一种方式是使用 <a class="reference external" href="https://docs.generic-mapping-tools.org/6.1/grdsample.html" title="(在 GMT v6.1)"><span>grdsample</span></a> <strong>-T</strong> 对原始数据做重采样。这种方法保留了网格的区域范围，但在重采样时会丢失数据中的高频信息。</p>
 <p>下图展示了为何在重采样过程中会丢失高频信息。图a中展示了一个沿着X轴的剖面。粗黑线为Nyquist频率下的X分量，在每个离散网格点处的值用红色圆圈表示。为了对配准方式进行转换，需要在相隔的网格节点中间（即红色三角形）进行重采样。显然，红色三角形的值始终为0，因而Nyquist频率所对应的高频信息在重采样的过程中丢失了。而对于低频信息而言（图中细线），蓝色圆圈为原始数据，蓝色三角为重采样时的采样点，因而低频信息得到了有效保留。图b给出了将像素配准转换为网格配准时重采样的转换函数，其显示了在重采样过程中，低频部分会保留，而高频部分振幅会被衰减。</p>
 <p><a class="reference download internal" download="" href="../../_downloads/487e425da1c6af465c3c32bf4b3ead78/registration-gmtplot-1.sh"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">Code</span></code></a></p>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/registration-gmtplot-1.png"><img alt="../../_images/registration-gmtplot-1.png" src="../../_images/registration-gmtplot-1.png" style="width: 75%;" /></a>
-</figure>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
@@ -326,9 +320,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

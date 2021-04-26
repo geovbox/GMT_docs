@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>添加文字 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/tutorial/texts.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -46,7 +46,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="添加图例" href="../legend/" />
-    <link rel="prev" title="绘制符号" href="../symbols/" /> 
+    <link rel="prev" title="绘制符号" href="../symbols/" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,39 +64,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -102,7 +99,7 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
@@ -126,8 +123,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../legend/">添加图例</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../earth-relief/">绘制地形起伏</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../layers/">理解图层</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../histogram/">绘制直方图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../layers/">理解图层</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../oneliner/">GMT单行模式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inset/">GMT图中图模式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../subplot/">GMT子图模式</a></li>
@@ -135,7 +132,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -150,10 +147,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -165,15 +163,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -231,7 +227,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/tutorial/texts.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/tutorial/texts.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -245,10 +241,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="id1">
+  <div class="section" id="id1">
 <h1>添加文字<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>GMT的 <a class="reference internal" href="../../module/text/"><span class="doc">text</span></a> 模块可以用于添加文字。</p>
-<section id="id2">
+<div class="section" id="id2">
 <h2>最简单的示例<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>若需要添加文字，则输入数据中必须给出文字的X和Y坐标以及具体的文字。因而，输入数据有三列:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>X   Y   text
@@ -265,11 +261,11 @@ gmt text <span class="s">&lt;&lt; EOF</span>
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/texts-gmtplot-0.png"><img alt="../../_images/texts-gmtplot-0.png" src="../../_images/texts-gmtplot-0.png" style="width: 60%;" /></a>
-</figure>
-</section>
-<section id="id3">
+</div>
+</div>
+<div class="section" id="id3">
 <h2>文字属性<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>当然，我们可以为文字设置更丰富的属性，比如文字大小、字体、文字颜色以及文字旋转角度等。这可以通过 <strong>-F</strong> 选项来实现。</p>
 <p><strong>-F+f</strong><em>font</em> 可以设置文字的属性，包括文字大小、字体和颜色，三者之间用逗号分隔。
@@ -289,11 +285,11 @@ gmt text -F+f16p,1,red+a30 <span class="s">&lt;&lt; EOF</span>
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/texts-gmtplot-1.png"><img alt="../../_images/texts-gmtplot-1.png" src="../../_images/texts-gmtplot-1.png" style="width: 60%;" /></a>
-</figure>
-</section>
-<section id="id4">
+</div>
+</div>
+<div class="section" id="id4">
 <h2>文本框<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>对于每个文本字符串，我们还可以为其加上文本框。</p>
 <ul class="simple">
@@ -311,11 +307,11 @@ gmt text -F+f16p,1,red+a30 -W1p -Glightblue -C25%/25% <span class="s">&lt;&lt; E
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/texts-gmtplot-2.png"><img alt="../../_images/texts-gmtplot-2.png" src="../../_images/texts-gmtplot-2.png" style="width: 60%;" /></a>
-</figure>
-</section>
-<section id="id5">
+</div>
+</div>
+<div class="section" id="id5">
 <h2>对齐方式<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>对于任意一个文本，我们还可以设置其对齐方式与偏移量。GMT中文本的默认对齐方式为居中对齐，即将整个文本的中心放在指定的X和Y坐标处。当然，用户也可以自行指定文本的对齐方式。</p>
 <p>文本的对齐方式由水平对齐方式和垂直对齐方式共同决定。水平对齐方式有三种：左对齐（<strong>L</strong>eft）、居中对齐（<strong>C</strong>enter）和右对齐（<strong>R</strong>ight）。垂直对齐方式有三种：顶部对齐（<strong>T</strong>op）、居中对齐（<strong>M</strong>iddle）和底部对齐（<strong>B</strong>ottom）。三种水平对齐方式和三种垂直对齐方式，构成了文本的9种对齐方式。</p>
@@ -330,11 +326,11 @@ gmt text -F+f16p,1,red+jTL -W1p <span class="s">&lt;&lt; EOF</span>
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/texts-gmtplot-3.png"><img alt="../../_images/texts-gmtplot-3.png" src="../../_images/texts-gmtplot-3.png" style="width: 60%;" /></a>
-</figure>
-</section>
-<section id="id6">
+</div>
+</div>
+<div class="section" id="id6">
 <h2>文本偏移量<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>使用 <strong>-D</strong> 选项还可以对文本设置额外的偏移量。下面的示例中，
 <strong>-D0.5c/0.5c</strong> 分别设置了文本在X方向和Y方向的偏移量。</p>
@@ -348,11 +344,11 @@ gmt text -F+f16p,1,red+jTL -D0.5c/0.5c -W1p <span class="s">&lt;&lt; EOF</span>
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/texts-gmtplot-4.png"><img alt="../../_images/texts-gmtplot-4.png" src="../../_images/texts-gmtplot-4.png" style="width: 60%;" /></a>
-</figure>
-</section>
-<section id="id7">
+</div>
+</div>
+<div class="section" id="id7">
 <h2>变化的文字属性<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>如果想要不同的文字有不同的文本属性，可以多次调用 <strong>text</strong> 模块，每次设置不同的文本属性。当然，还有更加灵活的办法，可以一个命令中实现变化的文字属性。</p>
 <p>下面的例子中，使用了 <strong>-F+f+a+j</strong> 选项。上面已经介绍到，<strong>+f</strong> 设置文本属性，
@@ -372,11 +368,11 @@ gmt text -F+f+a+j -W1p -Glightblue <span class="s">&lt;&lt; EOF</span>
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/texts-gmtplot-5.png"><img alt="../../_images/texts-gmtplot-5.png" src="../../_images/texts-gmtplot-5.png" style="width: 60%;" /></a>
-</figure>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
@@ -415,9 +411,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

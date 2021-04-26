@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>绘制线段和多边形 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/tutorial/lines.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -46,7 +46,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="绘制符号" href="../symbols/" />
-    <link rel="prev" title="绘制海岸线" href="../coastline/" /> 
+    <link rel="prev" title="绘制海岸线" href="../coastline/" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,39 +64,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -102,7 +99,7 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
@@ -125,8 +122,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../texts/">添加文字</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../legend/">添加图例</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../earth-relief/">绘制地形起伏</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../layers/">理解图层</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../histogram/">绘制直方图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../layers/">理解图层</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../oneliner/">GMT单行模式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inset/">GMT图中图模式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../subplot/">GMT子图模式</a></li>
@@ -134,7 +131,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -149,10 +146,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -164,15 +162,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -230,7 +226,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/tutorial/lines.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/tutorial/lines.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -244,10 +240,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="id1">
+  <div class="section" id="id1">
 <h1>绘制线段和多边形<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>绘制线条和多边形是日常绘图最常见的需求之一，也是所有绘图软件必备的功能。这一节我们将学习如何使用 GMT 的 <a class="reference internal" href="../../module/plot/"><span class="doc">plot</span></a> 模块绘制线段和多边形。</p>
-<section id="id2">
+<div class="section" id="id2">
 <h2>绘制一条线段<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>要绘制一条线段，就必须提供线段上数据点的信息，即数据的X坐标和Y坐标。
 <a class="reference internal" href="../../module/plot/"><span class="doc">plot</span></a> 会自动将输入数据中相邻的两点连接起来。</p>
@@ -291,9 +287,9 @@ gmt begin SimpleLine png,pdf
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/lines-gmtplot-0.png"><img alt="../../_images/lines-gmtplot-0.png" src="../../_images/lines-gmtplot-0.png" style="width: 50%;" /></a>
-</figure>
+</div>
 <p>想要修改线段的粗细或颜色？很简单，可以使用 <strong>plot</strong> 模块的 <strong>-W</strong> 选项设置画笔属性。画笔属性包括三个部分：线宽、颜色以及线型，三者之间用逗号隔开。</p>
 <p>下面的脚本中，我们给 <strong>plot</strong> 模块添加了 <strong>-W2p,red,-</strong> 选项，即设置了画笔属性为 <strong>2p</strong> 宽的红色虚线。<strong>p</strong> 是GMT中的一个长度单位。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat &gt; points.dat <span class="s">&lt;&lt; EOF</span>
@@ -308,13 +304,13 @@ gmt begin SimpleLine png,pdf
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/lines-gmtplot-1.png"><img alt="../../_images/lines-gmtplot-1.png" src="../../_images/lines-gmtplot-1.png" style="width: 50%;" /></a>
-</figure>
+</div>
 <p>你可以尝试修改线宽、颜色和线型，并查看绘图效果。几种常见的线型包括
 <code class="docutils literal notranslate"><span class="pre">-</span></code>、<code class="docutils literal notranslate"><span class="pre">.</span></code>、<code class="docutils literal notranslate"><span class="pre">.-</span></code>和 <code class="docutils literal notranslate"><span class="pre">-.</span></code>。</p>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h2>绘制一个多边形<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p><strong>plot</strong> 在绘制线段时默认是不将线段首尾连接起来的，可以使用 <strong>-L</strong> 选项将线段的首尾连接起来，构成了一个闭合多边形。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat &gt; points.dat <span class="s">&lt;&lt; EOF</span>
@@ -329,9 +325,9 @@ gmt begin polygon png,pdf
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/lines-gmtplot-2.png"><img alt="../../_images/lines-gmtplot-2.png" src="../../_images/lines-gmtplot-2.png" style="width: 50%;" /></a>
-</figure>
+</div>
 <p>我们还可以使用 <strong>-G</strong> 选项为闭合多边形填充颜色。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat &gt; points.dat <span class="s">&lt;&lt; EOF</span>
 <span class="s">2   2</span>
@@ -345,9 +341,9 @@ gmt begin polygon png,pdf
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/lines-gmtplot-3.png"><img alt="../../_images/lines-gmtplot-3.png" src="../../_images/lines-gmtplot-3.png" style="width: 50%;" /></a>
-</figure>
+</div>
 <p>这样我们就得到了一个内部为浅红色、轮廓为浅蓝色的多边形了。如果只想要填充颜色而不绘制轮廓，只需要使用 <strong>-G</strong> 而不使用 <strong>-W</strong> 即可。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat &gt; points.dat <span class="s">&lt;&lt; EOF</span>
 <span class="s">2   2</span>
@@ -361,11 +357,11 @@ gmt begin polygon png,pdf
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/lines-gmtplot-4.png"><img alt="../../_images/lines-gmtplot-4.png" src="../../_images/lines-gmtplot-4.png" style="width: 50%;" /></a>
-</figure>
-</section>
-<section id="id4">
+</div>
+</div>
+<div class="section" id="id4">
 <h2>绘制多条线段<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>学会了如何绘制一条线段，下面介绍如何一次性绘制很多条线段。可以将所有线段的数据点都保存到一个输入文件中，例如:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;
@@ -397,11 +393,11 @@ gmt begin MultiLines png,pdf
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/lines-gmtplot-5.png"><img alt="../../_images/lines-gmtplot-5.png" src="../../_images/lines-gmtplot-5.png" style="width: 50%;" /></a>
-</figure>
-</section>
-<section id="id5">
+</div>
+</div>
+<div class="section" id="id5">
 <h2>绘制多个多边形<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>使用相同的输入数据，通过加上 <strong>-L</strong> 可以构成闭合多边形，加上 <strong>-G</strong> 为多边形设置填充色。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat &gt; lines.dat <span class="s">&lt;&lt; EOF</span>
@@ -421,11 +417,11 @@ gmt begin MultiPolygons png,pdf
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/lines-gmtplot-6.png"><img alt="../../_images/lines-gmtplot-6.png" src="../../_images/lines-gmtplot-6.png" style="width: 50%;" /></a>
-</figure>
-</section>
-<section id="id6">
+</div>
+</div>
+<div class="section" id="id6">
 <h2>大圆弧路径<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>在笛卡尔坐标系下，绘制线段时，任意两点之间会以直线方式连接；而在地理投影下，任意两点之间则使用大圆弧路径方法会连接。如果想要在地理投影下也是要直线连接两点，则需要使用 <strong>-A</strong> 选项。</p>
 <p>下面的命令中，我们首先使用 <strong>coast</strong> 绘制了一张全球地图，接着使用 <strong>plot</strong> 模块绘制了地球上两点之间的连线（红色，以大圆弧路径方式连接），然后，我们加上了 <strong>-A</strong> 选项再次绘制了这两点之间的连线（蓝色，以直线方式连接）。从中可以看到 <strong>-A</strong> 选项的效果。</p>
@@ -441,11 +437,11 @@ gmt begin map png,pdf
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/lines-gmtplot-7.png"><img alt="../../_images/lines-gmtplot-7.png" src="../../_images/lines-gmtplot-7.png" style="width: 80%;" /></a>
-</figure>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
@@ -484,9 +480,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

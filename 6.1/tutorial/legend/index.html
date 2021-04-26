@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>添加图例 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/tutorial/legend.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -46,7 +46,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="绘制地形起伏" href="../earth-relief/" />
-    <link rel="prev" title="添加文字" href="../texts/" /> 
+    <link rel="prev" title="添加文字" href="../texts/" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,39 +64,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -102,7 +99,7 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
@@ -123,8 +120,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../earth-relief/">绘制地形起伏</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../layers/">理解图层</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../histogram/">绘制直方图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../layers/">理解图层</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../oneliner/">GMT单行模式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inset/">GMT图中图模式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../subplot/">GMT子图模式</a></li>
@@ -132,7 +129,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -147,10 +144,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -162,15 +160,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -228,7 +224,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/tutorial/legend.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/tutorial/legend.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -242,10 +238,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="id1">
+  <div class="section" id="id1">
 <h1>添加图例<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>绘制了线条与符号后，通常还需要添加图例，以解释不同数据的含义。GMT中使用 <a class="reference internal" href="../../module/legend/"><span class="doc">legend</span></a> 模块添加图例。</p>
-<section id="id2">
+<div class="section" id="id2">
 <h2>自动图例<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>在使用 <a class="reference internal" href="../../module/plot/"><span class="doc">plot</span></a> 模块绘制线条或符号时，可以额外加上 <strong>-l</strong><em>label</em>
 选项以指定当前线段或符号的图例标签。</p>
@@ -268,12 +264,12 @@ gmt plot -Gblue -St0.3c -W0.5p -l<span class="s2">&quot;Station&quot;</span> <sp
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
-<a class="reference internal image-reference" href="../../_images/legend-gmtplot-01.png"><img alt="../../_images/legend-gmtplot-01.png" src="../../_images/legend-gmtplot-01.png" style="width: 50%;" /></a>
-</figure>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/legend-gmtplot-0.png"><img alt="../../_images/legend-gmtplot-0.png" src="../../_images/legend-gmtplot-0.png" style="width: 50%;" /></a>
+</div>
 <p>还可以为 <strong>-l</strong> 选项加上其它子选项以控制图例的位置、大小以及其它显示效果，在本教程中不再赘述。</p>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h2>设置图例属性<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>GMT 使用 <strong>legend</strong> 模块添加图例。上面的示例中我们并没有调用 <strong>legend</strong> 模块，而是 GMT 在绘图结束时自动调用了 <strong>legend</strong> 添加图例。我们也可以显式调用
 <strong>legend</strong> 模块，并设置图例的更多属性。</p>
@@ -295,17 +291,17 @@ gmt legend -DjBR+o0.1c/0.1c -F+p1p+glightblue
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/legend-gmtplot-1.png"><img alt="../../_images/legend-gmtplot-1.png" src="../../_images/legend-gmtplot-1.png" style="width: 50%;" /></a>
-</figure>
+</div>
 <p>这个示例中，我们显式调用了 <strong>legend</strong> 选项，并设置了 <strong>-D</strong> 和 <strong>-F</strong> 选项。</p>
 <ul class="simple">
 <li><p><strong>jBR</strong> 表示将图例放在底图的右下角（BottomRight）</p></li>
 <li><p><strong>+o0.1c/0.1c</strong> 表示将图例在右下角的基础上再加上额外的偏移量</p></li>
 <li><p><strong>-F+p1p+glightblue</strong> 则设置了图例框的轮廓和填充色</p></li>
 </ul>
-</section>
-<section id="id4">
+</div>
+<div class="section" id="id4">
 <h2>手动设置图例<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>如果对于自动生成的图例不满意，还可以使用 <a class="reference internal" href="../../module/legend/"><span class="doc">legend</span></a> 模块绘制更复杂的图例，其输入文件有自己的一套规则，详情见 <a class="reference internal" href="../../module/legend/"><span class="doc">legend</span></a> 模块的说明文档。这节只介绍最简单也最常用的图例，即符号和线条的图例。针对绘制符号和线条，<a class="reference internal" href="../../module/legend/"><span class="doc">legend</span></a> 的输入格式为：</p>
 <blockquote>
@@ -340,11 +336,11 @@ gmt legend legend.txt -DjBR+w2.8c+o0.1c/0.1c -F+p1p+glightblue
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/legend-gmtplot-2.png"><img alt="../../_images/legend-gmtplot-2.png" src="../../_images/legend-gmtplot-2.png" style="width: 70%;" /></a>
-</figure>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
@@ -383,9 +379,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

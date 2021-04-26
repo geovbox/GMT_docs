@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>-J 选项 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/option/J.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
         <script async="async" src="https://cdn.bootcss.com/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
@@ -47,7 +47,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="-B 选项" href="../B/" />
-    <link rel="prev" title="-R 选项" href="../R/" /> 
+    <link rel="prev" title="-R 选项" href="../R/" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -59,39 +65,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -103,14 +100,14 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -157,10 +154,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -172,15 +170,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -238,7 +234,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/option/J.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/option/J.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -252,7 +248,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="j">
+  <div class="section" id="j">
 <h1>-J 选项<a class="headerlink" href="#j" title="永久链接至标题">¶</a></h1>
 <p><strong>-J</strong> 选项用于指定坐标变换方式或地图投影方式，即将数据投影到画布上所采用的函数。</p>
 <p><strong>-J</strong> 选项后接投影代码以及投影参数。GMT目前支持三种不同的方式指定投影代码和投影方式：</p>
@@ -261,7 +257,7 @@
 <li><p>Proj4投影代码</p></li>
 <li><p>GMT+PROJ4投影代码</p></li>
 </ul>
-<section id="gmt">
+<div class="section" id="gmt">
 <h2>GMT投影代码<a class="headerlink" href="#gmt" title="永久链接至标题">¶</a></h2>
 <p><strong>-J</strong> 选项有两种写法:</p>
 <blockquote>
@@ -404,8 +400,8 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="proj4">
+</div>
+<div class="section" id="proj4">
 <h2>Proj4投影代码<a class="headerlink" href="#proj4" title="永久链接至标题">¶</a></h2>
 <p>GMT用单个字母指定投影方式，但英文字母只有26个，而投影方式却不止26个，因而，从GMT 4.3.0开始，GMT开始支持 Proj4 包的投影代码。Proj4 包不是使用单个字符指定投影方式，而是通过一个单词指定。比如墨卡托投影既可以用 <strong>-Jm</strong> 指定也可以用 <strong>-Jmerc</strong> 指定。</p>
 <p>其语法为:</p>
@@ -521,12 +517,12 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="gmt-proj4">
+</div>
+<div class="section" id="gmt-proj4">
 <h2>GMT+PROJ4<a class="headerlink" href="#gmt-proj4" title="永久链接至标题">¶</a></h2>
 <p>从GMT6开始，GMT支持使用 PROJ.4 库来实现坐标和基准面的转换。这一特性是通过GDAL
 实现的，因而需要GMT在安装时链接到GDAL库。详细的 PROJ.4 语法见
-<a class="reference external" href="http://proj4.org/apps/index.html">http://proj4.org/apps/index.html</a>。</p>
+<a class="reference external" href="https://proj.org/apps/index.html">https://proj.org/apps/index.html</a>。</p>
 <p>在PROJ.4中，投影一般有很多参数，多个参数之间用空格分隔。在GMT中，可以将所有参数用双引号括起来:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-J<span class="s2">&quot;+proj=merc +ellps=WGS84 +units=m&quot;</span>
 </pre></div>
@@ -542,10 +538,10 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-JEPSG:4326+to+proj<span class="o">=</span>aeqd+ellps<span class="o">=</span>WGS84+units<span class="o">=</span>m
 </pre></div>
 </div>
-<p>对于使用 <a class="reference external" href="https://docs.generic-mapping-tools.org/6.1/mapproject.html" title="(在 GMT v6.1)"><span>mapproject</span></a> 和 <a class="reference internal" href="../../module/grdproject/"><span class="doc">grdproject</span></a> 进行点和网格文件的转换，GMT可以使用所有的 <a class="reference external" href="https://proj4.org/operations/projections/index.html">PROJ.4投影</a>。但对于绘图而言，其用处却很有限。一方面，只有一部分 PROJ.4 的投影方式可以被映射到GMT的投影语法中。另一方面，由于PROJ.4不是一个绘图库，其不支持设置地图比例尺或地图大小。因而，GMT为PROJ.4语法引入了两个扩展：<strong>+width=</strong><em>size</em>
+<p>对于使用 <a class="reference external" href="https://docs.generic-mapping-tools.org/6.1/mapproject.html" title="(在 GMT v6.1)"><span>mapproject</span></a> 和 <a class="reference internal" href="../../module/grdproject/"><span class="doc">grdproject</span></a> 进行点和网格文件的转换，GMT可以使用所有的 <a class="reference external" href="https://proj.org/operations/projections/index.html">PROJ.4投影</a>。但对于绘图而言，其用处却很有限。一方面，只有一部分 PROJ.4 的投影方式可以被映射到GMT的投影语法中。另一方面，由于PROJ.4不是一个绘图库，其不支持设置地图比例尺或地图大小。因而，GMT为PROJ.4语法引入了两个扩展：<strong>+width=</strong><em>size</em>
 和 <strong>+scale=1:xxxx</strong> 使得其与经典的GMT中的工作方式相似。也可以在投影参数的最后加上字符串 <strong>/1:xxx</strong> 来指定比例尺。</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -584,9 +580,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

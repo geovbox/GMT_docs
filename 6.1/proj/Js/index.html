@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>-Js：立体等角投影 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/proj/Js.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -46,7 +46,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="-Jt：横向Mercator投影" href="../Jt/" />
-    <link rel="prev" title="-Jr：Winkel Tripel投影" href="../Jr/" /> 
+    <link rel="prev" title="-Jr：Winkel Tripel投影" href="../Jr/" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,39 +64,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -102,14 +99,14 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -158,10 +155,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -173,15 +171,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -239,7 +235,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/proj/Js.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/proj/Js.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -253,7 +249,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="js">
+  <div class="section" id="js">
 <h1>-Js：立体等角投影<a class="headerlink" href="#js" title="永久链接至标题">¶</a></h1>
 <p>维基链接：<a class="reference external" href="https://en.wikipedia.org/wiki/Stereographic_projection">https://en.wikipedia.org/wiki/Stereographic_projection</a></p>
 <p>此投影是保角方位投影，主要用于绘制南北极区域。在两极，所有经线都是直线，纬线则是圆弧。</p>
@@ -268,20 +264,18 @@
 <li><p><em>scale</em> 地图比例尺，可以取 1:<em>xxxx</em> 格式（图上1厘米对应真实地球 <em>xxxx</em> 厘米），也可以是 <em>radius</em>/<em>latitude</em>（表示从投影中心到纬线 <em>latitude</em> 在图上的距离为 <em>radius</em>）</p></li>
 </ul>
 <p>默认情况下使用的地图比例因子为0.996。尽管你可以通过 <a class="reference internal" href="../../conf/proj/#term-PROJ_SCALE_FACTOR"><span class="xref std std-term">PROJ_SCALE_FACTOR</span></a> 修改地图比例因子，然而，当标准纬线被指定后，该比例因子则会被自动计算。</p>
-<section id="id1">
+<div class="section" id="id1">
 <h2>极区立体地图<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>下面的示例中，投影中心为北极，地图边界与经线和纬线完全重合。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt coast -R-30/30/60/72 -Js0/90/12c/60 -B10g -Dl -A250 -Groyalblue -Sseashell -png GMT_stereographic_polar
 </pre></div>
 </div>
-<figure class="align-center" id="id4">
+<div class="figure align-center" id="id4">
 <a class="reference internal image-reference" href="../../_images/Js-gmtplot-0.png"><img alt="../../_images/Js-gmtplot-0.png" src="../../_images/Js-gmtplot-0.png" style="width: 85%;" /></a>
-<figcaption>
-<p><span class="caption-text">极区立体保角投影</span><a class="headerlink" href="#id4" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="id2">
+<p class="caption"><span class="caption-text">极区立体保角投影</span><a class="headerlink" href="#id4" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id2">
 <h2>矩形立体地图<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>与Lambert方位等面积投影类似，也可以通过指定地图区域左下角和右上角的坐标来绘制一个矩形区域。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt begin GMT_stereographic_rect pdf,png
@@ -290,14 +284,12 @@ gmt coast -R-25/59/70/72+r -JS10/90/11c -B20g -Dl -A250 -Gdarkbrown -Wthinnest -
 gmt end
 </pre></div>
 </div>
-<figure class="align-center" id="id5">
+<div class="figure align-center" id="id5">
 <a class="reference internal image-reference" href="../../_images/Js-gmtplot-1.png"><img alt="../../_images/Js-gmtplot-1.png" src="../../_images/Js-gmtplot-1.png" style="width: 75%;" /></a>
-<figcaption>
-<p><span class="caption-text">矩形边界下的极区立体保角投影</span><a class="headerlink" href="#id5" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="id3">
+<p class="caption"><span class="caption-text">矩形边界下的极区立体保角投影</span><a class="headerlink" href="#id5" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id3">
 <h2>一般立体地图<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt begin GMT_stereographic_general pdf,png
 gmt <span class="nb">set</span> MAP_ANNOT_OBLIQUE separate
@@ -305,14 +297,12 @@ gmt coast -R100/-42/160/-8+r -JS130/-30/12c -Bag -Dl -A500 -Ggreen -Slightblue -
 gmt end
 </pre></div>
 </div>
-<figure class="align-center" id="id6">
+<div class="figure align-center" id="id6">
 <a class="reference internal image-reference" href="../../_images/Js-gmtplot-2.png"><img alt="../../_images/Js-gmtplot-2.png" src="../../_images/Js-gmtplot-2.png" style="width: 75%;" /></a>
-<figcaption>
-<p><span class="caption-text">一般立体投影</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
-</section>
-</section>
+<p class="caption"><span class="caption-text">一般立体投影</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
 
 
            </div>
@@ -351,9 +341,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>绘制底图 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/tutorial/basemap.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -46,7 +46,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="绘制海岸线" href="../coastline/" />
-    <link rel="prev" title="脚本编程" href="../scripting/" /> 
+    <link rel="prev" title="脚本编程" href="../scripting/" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,39 +64,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -102,7 +99,7 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
@@ -124,8 +121,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../texts/">添加文字</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../legend/">添加图例</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../earth-relief/">绘制地形起伏</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../layers/">理解图层</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../histogram/">绘制直方图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../layers/">理解图层</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../oneliner/">GMT单行模式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inset/">GMT图中图模式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../subplot/">GMT子图模式</a></li>
@@ -133,7 +130,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -148,10 +145,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -163,15 +161,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -229,7 +225,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/tutorial/basemap.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/tutorial/basemap.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -243,11 +239,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="id1">
+  <div class="section" id="id1">
 <h1>绘制底图<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>GMT可以绘制多种不同类型的底图，包括全球地图、区域地图，以及线性坐标轴、对数轴、指数轴、极坐标轴，甚至3D坐标轴。</p>
 <p>这一节我们将通过使用 <a class="reference internal" href="../../module/coast/"><span class="doc">coast</span></a> 和 <a class="reference internal" href="../../module/basemap/"><span class="doc">basemap</span></a> 模块绘制不同类型的底图，并了解GMT中 <strong>-J</strong>、<strong>-R</strong>和 <strong>-B</strong> 选项的基本用法。</p>
-<section id="id2">
+<div class="section" id="id2">
 <h2>全球地图<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>要绘制地图，就需要将地球的三维球面投影到一个二维面上，投影的过程需要指定投影方式。GMT中使用 <strong>-J</strong> 选项指定地图投影参数以及地图的尺寸。同时，我们还需要使用 <strong>-R</strong> 选项指定要绘制的区域范围（即经纬度范围）。</p>
 <p>下面用最简单的命令绘制了一张全球地图。</p>
@@ -256,12 +252,10 @@
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center" id="id6">
-<a class="reference internal image-reference" href="../../_images/basemap-gmtplot-01.png"><img alt="../../_images/basemap-gmtplot-01.png" src="../../_images/basemap-gmtplot-01.png" style="width: 85%;" /></a>
-<figcaption>
-<p><span class="caption-text">全球地图（无边框版）</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../../_images/basemap-gmtplot-0.png"><img alt="../../_images/basemap-gmtplot-0.png" src="../../_images/basemap-gmtplot-0.png" style="width: 85%;" /></a>
+<p class="caption"><span class="caption-text">全球地图（无边框版）</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
+</div>
 <p>先忽略后面的 <strong>-W0.5p -A10000</strong>（后面章节会介绍到），这里只关注 <strong>-J</strong> 和 <strong>-R</strong> 选项。此示例中：</p>
 <ol class="arabic simple">
 <li><p><strong>-JH180/12c</strong> 指定地图投影参数，<strong>H</strong> 表示使用Hammer投影，地图中心位于经度180°处，地图宽度为12厘米（<strong>12c</strong>，<strong>c</strong> 表示单位厘米）；</p></li>
@@ -273,12 +267,10 @@ gmt end show
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center" id="id7">
-<a class="reference internal image-reference" href="../../_images/basemap-gmtplot-11.png"><img alt="../../_images/basemap-gmtplot-11.png" src="../../_images/basemap-gmtplot-11.png" style="width: 85%;" /></a>
-<figcaption>
-<p><span class="caption-text">全球地图（有边框版）</span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
+<div class="figure align-center" id="id7">
+<a class="reference internal image-reference" href="../../_images/basemap-gmtplot-1.png"><img alt="../../_images/basemap-gmtplot-1.png" src="../../_images/basemap-gmtplot-1.png" style="width: 85%;" /></a>
+<p class="caption"><span class="caption-text">全球地图（有边框版）</span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
+</div>
 <p>跟上一个脚本相比，此处我们做了两点修改：</p>
 <ol class="arabic simple">
 <li><p>使用 <strong>-Rg</strong> 代替了 <strong>-R0/360/-90/90</strong>。这二者是完全等效的。由于绘制全球地图是很常见的需求，因而GMT为其设计了一个更简单的写法。
@@ -296,8 +288,8 @@ gmt end show
 <li><p><strong>-JR180/12c</strong></p></li>
 </ul>
 </div>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h2>区域地图<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>绘制区域地图与绘制全球地图没有本质区别，我们依然需要使用 <strong>-J</strong> 指定投影方式，使用 <strong>-R</strong> 指定绘图区域范围，使用 <strong>-B</strong> 指定底图边框。</p>
 <p>下面的GMT命令绘制了一张新西兰地图。</p>
@@ -306,12 +298,10 @@ gmt end show
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center" id="id8">
+<div class="figure align-center" id="id8">
 <a class="reference internal image-reference" href="../../_images/basemap-gmtplot-2.png"><img alt="../../_images/basemap-gmtplot-2.png" src="../../_images/basemap-gmtplot-2.png" style="width: 50%;" /></a>
-<figcaption>
-<p><span class="caption-text">使用国家代码指定绘图区域</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-text">使用国家代码指定绘图区域</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</div>
 <p>这里我们使用了：</p>
 <ul class="simple">
 <li><p><strong>-JM12c</strong> 指定了使用墨卡托投影（绘制区域地图最常用的投影方式），地图宽度为12厘米；</p></li>
@@ -326,12 +316,10 @@ gmt end show
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center" id="id9">
+<div class="figure align-center" id="id9">
 <a class="reference internal image-reference" href="../../_images/basemap-gmtplot-3.png"><img alt="../../_images/basemap-gmtplot-3.png" src="../../_images/basemap-gmtplot-3.png" style="width: 50%;" /></a>
-<figcaption>
-<p><span class="caption-text">使用经纬度范围指定绘图区域</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-text">使用经纬度范围指定绘图区域</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</div>
 <p>上面的例子中我们还调整了 <strong>-B</strong> 选项，<strong>-Bafg</strong> 表示绘制底图边框的标注（<strong>a</strong>nnotation）、刻度线（<strong>f</strong>rame，即图中黑白线段的间隔）和网格线（<strong>g</strong>rid）。标注、刻度线以及网格线的间隔由GMT算法自动决定。</p>
 <p>对GMT自动算法确定的间隔不满意？你还可以任意指定自己想要的间隔。下面例子中，我们对底图进行了进一步的自定义，为X轴和Y轴分别指定了间隔，并给底图添加了标题：</p>
 <ul class="simple">
@@ -345,14 +333,12 @@ gmt end show
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center" id="id10">
+<div class="figure align-center" id="id10">
 <a class="reference internal image-reference" href="../../_images/basemap-gmtplot-4.png"><img alt="../../_images/basemap-gmtplot-4.png" src="../../_images/basemap-gmtplot-4.png" style="width: 50%;" /></a>
-<figcaption>
-<p><span class="caption-text">为区域地图添加标题</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="id4">
+<p class="caption"><span class="caption-text">为区域地图添加标题</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id4">
 <h2>线性坐标轴<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>GMT最擅长绘制地图，同时也适合绘制最简单的线性坐标轴。同样的，要想绘制线性坐标轴，我们依然需要使用 <strong>-R</strong> 指定坐标轴范围，使用 <strong>-B</strong> 绘制边框并指定边框和坐标轴属性，同时，我们还需要使用 <strong>-JX</strong> 指定线性坐标轴的宽度和高度。</p>
 <p>下面的示例中，我们使用了：</p>
@@ -368,15 +354,13 @@ gmt end show
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center" id="id11">
+<div class="figure align-center" id="id11">
 <a class="reference internal image-reference" href="../../_images/basemap-gmtplot-5.png"><img alt="../../_images/basemap-gmtplot-5.png" src="../../_images/basemap-gmtplot-5.png" style="width: 60%;" /></a>
-<figcaption>
-<p><span class="caption-text">线性坐标轴</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-text">线性坐标轴</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
+</div>
 <p>GMT同样也可以绘制对数轴、指数轴以及极坐标轴，在这一节中不再介绍。</p>
-</section>
-<section id="id5">
+</div>
+<div class="section" id="id5">
 <h2>三维线性坐标轴<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>三维坐标轴相对于二维坐标轴多了一个Z轴。与二维线性坐标轴类似，我们需要针对Z轴指定Z轴的范围、Z轴的高度以及三维视角。</p>
 <p>下面的命令绘制了一个三维线性坐标轴，相比于传统的二维线性坐标轴，其不同之处在于：</p>
@@ -392,14 +376,12 @@ gmt end show
 gmt end show
 </pre></div>
 </div>
-<figure class="align-center" id="id12">
+<div class="figure align-center" id="id12">
 <a class="reference internal image-reference" href="../../_images/basemap-gmtplot-6.png"><img alt="../../_images/basemap-gmtplot-6.png" src="../../_images/basemap-gmtplot-6.png" style="width: 50%;" /></a>
-<figcaption>
-<p><span class="caption-text">三维线性坐标轴</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
-</section>
-</section>
+<p class="caption"><span class="caption-text">三维线性坐标轴</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
 
 
            </div>
@@ -438,9 +420,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>读netCDF文件 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/grid/read.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -46,7 +46,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="写netCDF文件" href="../write/" />
-    <link rel="prev" title="边界条件" href="../boundary-condition/" /> 
+    <link rel="prev" title="边界条件" href="../boundary-condition/" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,39 +64,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -102,14 +99,14 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -140,10 +137,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -155,15 +153,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -221,7 +217,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/grid/read.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/grid/read.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -235,10 +231,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="netcdf">
+  <div class="section" id="netcdf">
 <h1>读netCDF文件<a class="headerlink" href="#netcdf" title="永久链接至标题">¶</a></h1>
 <p>netCDF格式的设计相当灵活，单个netCDF文件中可以包含<strong>多个多维变量</strong>。而GMT只能直接处理包含单个二维变量的netCDF文件。因而，对于单变量二维netCDF文件，直接给出文件名即可；而对于复杂的多变量多维netCDF文件，则需要用户在指定文件名时给出额外的信息。</p>
-<section id="id1">
+<div class="section" id="id1">
 <h2>读二维单变量netCDF文件<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>日常见到的大多数netCDF文件都是二维单变量netCDF文件。此时，用户只需要直接给出网格文件的文件名即可，GMT可以自动检测其格式并读入。</p>
 <p>更进一步，也可以在文件名后直接指明数据格式，并控制读入数据的缩放和偏移。具体来说，可以按照如下格式指定网格文件文件名：</p>
@@ -263,8 +259,8 @@
 <li><p>读一个8字节标准Sun光栅文件（其原始范围为0到255），并将其归一化到正负1范围内，可以用 <code class="docutils literal notranslate"><span class="pre">rasterfile+s7.84313725e-3+o-1</span></code>，即先乘以因子使得数据范围从0到255
 变成0到2，再减去1，则数据范围变成-1到1</p></li>
 </ol>
-</section>
-<section id="id2">
+</div>
+<div class="section" id="id2">
 <h2>读取二维多变量netCDF文件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>对于包含多个二维变量的netCDF网格文件，GMT默认会读取第一个二维变量作为Z值，并忽略其余的二维变量。用户可以通过在网格文件名后加上后缀 <strong>?</strong><em>varname</em> 的方式指定要读取某个特定的二维变量，即：</p>
 <blockquote>
@@ -280,8 +276,8 @@
 <p class="admonition-title">注解</p>
 <p>Linux下问号会被解析为通配符，因而在命令行或Bash中使用时需要将问号转义，或者将整个文件名放在单引号或双引号内。</p>
 </div>
-</section>
-<section id="id3">
+</div>
+<div class="section" id="id3">
 <h2>读取三维单/多变量netCDF文件<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>最常见的三维单/多变量netCDF文件是地震成像得到的三维地球参考模型。三个维度分别是经度、纬度和深度，变量通常是P波速度、S波速度等。</p>
 <p>在遇到三维单/多变量netCDF文件时，GMT默认只读取第一个变量的第一层数据（通常是深度值最小的那一层）。此时，可以将其当做一个变量数组，并通过如下两种方式指定读取特定层的数据。</p>
@@ -317,8 +313,8 @@ gmt grdinfo <span class="s2">&quot;file.nc?vp(200)&quot;</span>
 <p class="admonition-title">注解</p>
 <p>Linux下问号、中括号和小括号有特殊含义，因而在命令行或Bash中使用时需要进行转义，或者将整个文件名放在单引号或双引号内</p>
 </div>
-</section>
-<section id="id4">
+</div>
+<div class="section" id="id4">
 <h2>读取四维单/多变量netCDF文件<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>对于四维单/多变量netCDF文件，处理方法类似。假设有一个四维单变量netCDF文件，四个维度分别是纬度、经度、深度、时间，变量为压强。利用 <code class="docutils literal notranslate"><span class="pre">ncdump</span></code> 可以查看四个纬度的取值范围:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lat<span class="o">(</span>lat<span class="o">)</span>: <span class="m">0</span>, <span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">4</span>, <span class="m">5</span>, <span class="m">6</span>, <span class="m">7</span>, <span class="m">8</span>, <span class="m">9</span>
@@ -338,8 +334,8 @@ pressure<span class="o">(</span>time,depth,lat,lon<span class="o">)</span>: <spa
 </pre></div>
 </div>
 <p>在本例中，时间维度在前，深度维度在后。</p>
-</section>
-<section id="id5">
+</div>
+<div class="section" id="id5">
 <h2>读取一维单/多变量netCDF文件<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>一维单/多变量netCDF文件，即前面所说的以netCDF格式保存的表数据。即表数据中的每一列分别保存为netCDF文件中的一个变量。GMT自带的GSHHG数据和DCW数据就是一维多变量netCDF文件。</p>
 <p>同样的，可以使用 <code class="docutils literal notranslate"><span class="pre">ncdump</span> <span class="pre">-c</span> <span class="pre">file.nc</span></code> 来查看netCDF文件所包含的变量名。然后即可通过在文件名后加上一系列用斜杠分隔的变量名来使用这些一维变量。例如:</p>
@@ -365,8 +361,8 @@ gmt convert <span class="s2">&quot;file.nc?time/lat/lon&quot;</span> ...
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gmt convert <span class="s2">&quot;file.nc?time/temp[1]</span>
 </pre></div>
 </div>
-</section>
-<section id="id6">
+</div>
+<div class="section" id="id6">
 <h2>修改坐标单位<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>某些GMT模块要求网格中的两个维度的单位必须是米，若输入数据中的维度的单位不是米，则需要对网格坐标做一些变换。例如，<strong>grdfft</strong> 模块在计算2D网格的傅里叶变换时要求网格是以米为单位。</p>
 <ol class="arabic simple">
@@ -375,8 +371,8 @@ gmt convert <span class="s2">&quot;file.nc?time/lat/lon&quot;</span> ...
 <strong>filename+uk</strong> 将其转换成以米为单位。在输出网格时，会自动使用输入数据的原始单位，除非输出网格文件名中有额外的 <strong>+u</strong> 选项。也可以使用 <strong>+U</strong><em>unit</em>
 实现逆变换，将以米为单位的网格坐标变成以 <em>unit</em> 为单位。</p></li>
 </ol>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -415,9 +411,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

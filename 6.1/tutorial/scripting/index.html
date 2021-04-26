@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>脚本编程 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/tutorial/scripting.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -46,7 +46,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="绘制底图" href="../basemap/" />
-    <link rel="prev" title="命令初探" href="../commands/" /> 
+    <link rel="prev" title="命令初探" href="../commands/" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,39 +64,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -102,7 +99,7 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
@@ -124,8 +121,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../texts/">添加文字</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../legend/">添加图例</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../earth-relief/">绘制地形起伏</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../layers/">理解图层</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../histogram/">绘制直方图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../layers/">理解图层</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../oneliner/">GMT单行模式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inset/">GMT图中图模式</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../subplot/">GMT子图模式</a></li>
@@ -133,7 +130,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -148,10 +145,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -163,15 +161,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -229,7 +225,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/tutorial/scripting.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/tutorial/scripting.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -243,7 +239,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="id1">
+  <div class="section" id="id1">
 <h1>脚本编程<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>本手册中的所有示例及代码都使用Bash脚本实现，要求读者对Bash脚本语言有最基本的了解。Windows用户若使用Batch脚本，则需要同时了解Bash和Batch的语法，并了解如何将本手册中的Bash脚本正确转换为Batch脚本。</p>
 <p>这一节介绍本手册中或GMT使用过程中最常用的Bash和Batch语法，而不涉及不常用或更复杂的语法。本文主要包含四部分内容：</p>
@@ -253,7 +249,7 @@
 <li><p>将Bash脚本转换为Batch脚本</p></li>
 <li><p>常用Unix小工具</p></li>
 </ul>
-<section id="bash">
+<div class="section" id="bash">
 <h2>Bash编程基础知识<a class="headerlink" href="#bash" title="永久链接至标题">¶</a></h2>
 <p>用文本编辑器创建一个后缀名为 <strong>.sh</strong> 的文件，向其中写入Bash命令并保存，即得到一个Bash脚本。</p>
 <p>打开终端，在终端中输入 <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">script.sh</span></code>，即可执行Bash脚本 <code class="file docutils literal notranslate"><span class="pre">script.sh</span></code>。也可以执行命令 <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">script.sh</span></code> 给脚本可执行权限，然后即可在终端输入
@@ -325,8 +321,8 @@ gmt end show
 rm tmp.txt
 </pre></div>
 </div>
-</section>
-<section id="batch">
+</div>
+<div class="section" id="batch">
 <h2>Batch编程基础知识<a class="headerlink" href="#batch" title="永久链接至标题">¶</a></h2>
 <p>新建一个文本文件，将后缀改为 <strong>.bat</strong>，向文件中写入Batch命令并保存，即得到一个Batch脚本。</p>
 <p>双击该Batch脚本即可直接运行，也可以打开CMD窗口，再输入Batch脚本名以运行脚本。</p>
@@ -390,8 +386,8 @@ gmt end show
 <span class="k">pause</span>
 </pre></div>
 </div>
-</section>
-<section id="bashbatch">
+</div>
+<div class="section" id="bashbatch">
 <h2>将Bash脚本转换为Batch脚本<a class="headerlink" href="#bashbatch" title="永久链接至标题">¶</a></h2>
 <p>Bash语法和Batch语法不同。本手册中所有脚本均使用Bash实现，Batch用户需要根据需求自行将Bash脚本转换为Batch脚本。转换主要注意如下几点：</p>
 <ul>
@@ -422,14 +418,14 @@ gmt plot tmp.dat
 </div>
 </li>
 </ul>
-</section>
-<section id="unix">
+</div>
+<div class="section" id="unix">
 <h2>常用Unix小工具<a class="headerlink" href="#unix" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p>awk: <a class="reference external" href="http://www.ruanyifeng.com/blog/2018/11/awk.html">http://www.ruanyifeng.com/blog/2018/11/awk.html</a></p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -468,9 +464,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>

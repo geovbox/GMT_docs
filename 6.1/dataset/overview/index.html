@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>GMT数据概述 &mdash; GMT中文手册</title>
@@ -14,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -22,8 +22,6 @@
   
 
   
-  
-    <link rel="canonical" href="https://docs.gmt-china.org/latest/dataset/overview.html"/>
   
 
   
@@ -38,6 +36,8 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -46,7 +46,13 @@
     <link rel="index" title="索引" href="../../genindex/" />
     <link rel="search" title="搜索" href="../../search/" />
     <link rel="next" title="GSHHG: 全球高分辨率海岸线数据" href="../gshhg/" />
-    <link rel="prev" title="地学数据集" href="../" /> 
+    <link rel="prev" title="地学数据集" href="../" />
+
+
+  <!-- Point to the *latest* version switcher. This will allow the latest versions to appear on older documentation. -->
+  <script type="text/javascript" src="/latest/_static/version_switch.js"></script>
+
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,39 +64,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
           
-    
-    <a href="../../" class="icon icon-home"> GMT中文手册
-    
-
-    
-    </a>
-
-    
-    
-    
+  <a href="../../" class="icon icon-home"> GMT中文手册
+</a>
     <div class="version">
-        <select onchange="location = this.options[this.selectedIndex].value;">
-            
-            <option value="/6.1/"  selected > v6.1 </option>
-            
-            <option value="/6.0/" > v6.0 </option>
-            
-            <option value="/5.4/" > v5.4 </option>
-            
-        </select>
+      6.1
     </div>
-    
-    
 
-    
+
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
+  <form class="wy-form" action="https://www.bing.com/search" id="searchForm">
+    <input id="search-bar" type="text" name="q" placeholder="搜索文档" required>
+    <input type="hidden" name="sitesearch" value="docs.gmt-china.org/latest/" id="sitesearch">
   </form>
+  <script>
+    var searchForm = document.getElementById('searchForm');
+    searchForm.onsubmit = function () {
+      var url = this.action;
+      var q = document.getElementById('search-bar').value;
+      var site = document.getElementById('sitesearch').value;
+      var url = url + '?q=' + q + ' site:' + site;
+      window.open(url);
+      return false;
+    };
+  </script>
 </div>
-
         </div>
 
         
@@ -102,14 +99,14 @@
               
             
             
-              <p><span class="caption-text">GMT 入门</span></p>
+              <p class="caption"><span class="caption-text">GMT 入门</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../intro/">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../migrating/">版本迁移</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">入门教程</a></li>
 </ul>
-<p><span class="caption-text">GMT 进阶</span></p>
+<p class="caption"><span class="caption-text">GMT 进阶</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../basis/">GMT基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../table/">表数据</a></li>
@@ -149,10 +146,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module/">模块手册</a></li>
 </ul>
-<p><span class="caption-text">附录</span></p>
+<p class="caption"><span class="caption-text">附录</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../appendix/">附录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributors/">贡献者列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">贡献指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/gmt-china/GMT_docs/graphs/contributors">贡献者列表</a></li>
 </ul>
 
             
@@ -164,15 +162,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> PDF下载</a></li>
+                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT 中文社区</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_Docs"><i class="fa fa-github fa-fw"></i> 源代码</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs"><i class="fa fa-github fa-fw"></i> 手册源码</a></li>
             
-                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/blob/master/CONTRIBUTING.md"><i class="fa fa-edit fa-fw"></i> 贡献指南</a></li>
+                <li class="toctree-l1"><a href="https://docs.gmt-china.org/6.1/GMT_docs.pdf"><i class="fa fa-book fa-fw"></i> 手册 PDF</a></li>
             
-                <li class="toctree-l1"><a href="https://gmt-china.org"><i class="fa fa-globe fa-fw"></i> GMT中文社区</a></li>
-            
-                <li class="toctree-l1"><a href="mailto:admin@gmt-china.org"><i class="fa fa-envelope fa-fw"></i> 联系我们</a></li>
+                <li class="toctree-l1"><a href="https://github.com/gmt-china/GMT_docs/discussions"><i class="fa fa-comments fa-fw"></i> 参与讨论</a></li>
             
         </ul>
     
@@ -230,7 +226,7 @@
         
           
             
-              <a href="https://github.com/gmt-china/GMT_Docs/blob/master/source/dataset/overview.rst" class="fa fa-github"> 编辑本页</a>
+              <a href="https://github.com/gmt-china/GMT_docs/blob/master/source/dataset/overview.rst" class="fa fa-github"> 编辑本页</a>
             
           
         
@@ -244,7 +240,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="gmt">
+  <div class="section" id="gmt">
 <h1>GMT数据概述<a class="headerlink" href="#gmt" title="永久链接至标题">¶</a></h1>
 <p>在使用GMT绘图时，经常会用到一些特定的地学数据，比如国界线、地形起伏数据等。通常，这些数据不需要任何改动即可用在多种图件中。根据使用方式的不同，它们可以分为三类：</p>
 <ol class="arabic simple">
@@ -253,15 +249,15 @@
 <li><p>自定义数据</p></li>
 </ol>
 <p>其中，GMT内置数据和远程数据，来自于一些公开数据。GMT官方对他们进行了整理，提供给用户使用。自定义数据则是由用户自己准备。GMT中文社区为用户整理了一些自定义数据。</p>
-<section id="id1">
+<div class="section" id="id1">
 <h2>GMT内置数据<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>GMT内置数据是指在安装GMT时就已经安装了的数据，因而可以直接使用。这类数据包括</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../gshhg/"><span class="doc">GSHHG: 全球高分辨率海岸线数据</span></a></p></li>
 <li><p><a class="reference internal" href="../dcw/"><span class="doc">DCW: 世界数字图表</span></a></p></li>
 </ul>
-</section>
-<section id="id2">
+</div>
+<div class="section" id="id2">
 <h2>GMT远程数据<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>GMT远程数据保存在GMT数据服务器上。当需要使用某个数据时，GMT会自动将数据下载到本地。目前，GMT提供了如下远程数据：</p>
 <ul class="simple">
@@ -270,22 +266,22 @@
 <li><p><a class="reference internal" href="../earth-age/"><span class="doc">earth_age: 地球洋壳年龄数据</span></a></p></li>
 <li><p><a class="reference internal" href="../earth-mask/"><span class="doc">earth_mask: 地球掩膜数据</span></a></p></li>
 </ul>
-<section id="id3">
+<div class="section" id="id3">
 <h3>工作原理及技术细节<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <p>经过一些数据处理，GMT官方把一些公开数据处理成不同分辨率、不同配准方式的数据，并保存在GMT专门的数据服务器上。当用户<strong>第一次</strong>使用某个分辨率的某个数据时，GMT会自动从服务器上下载该数据文件，并保存到GMT用户目录下的特定子目录下（默认为 <strong>~/.gmt/server</strong> 目录的子目录），然后再读取该文件。当用户再次使用该数据时，GMT会自动从本地GMT用户目录下读取该数据文件，而无需再次从服务器下载。</p>
-<section id="id4">
+<div class="section" id="id4">
 <h4>数据分辨率<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h4>
 <p>通常，公开数据提供者只提供一个原始分辨率版本。但有些时候用户不需要原始分辨率。GMT对原始数据做笛卡尔高斯滤波以进行减采样，提供了多种不同分辨率以及不同配准方式的版本，以满足不同的用户需求。</p>
-</section>
-<section id="id5">
+</div>
+<div class="section" id="id5">
 <h4>数据分块<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
 <p>通常，一个分辨率、一个配准方式的数据以单个文件的形式保存在GMT服务器中。但，对于高分辨率的数据，这会导致单个文件的大小变得很大，使得网络下载变得困难。为了解决这一问题，对于高分辨率的数据，GMT官方将其分割成若干个小区块，每个区块以单独的文件保存在服务器上，通常每个区块对应的文件大小约5 MB或更小。当用户需要某个区域的高分辨率数据时，可以通过 <strong>-R</strong> 选项指定区域，GMT会自动下载该区域的所有区块的数据，然后自动合并成单个网格数据供用户使用。这样可以极大减小数据下载量。例如，想要用3弧秒的数据绘制2度x2度的区域，GMT只需要下载该区域几MB的网格数据，而无需下载整个7 GB的3弧秒数据，极大的节省了下载时间。</p>
-</section>
-<section id="id6">
+</div>
+<div class="section" id="id6">
 <h4>数据压缩<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
 <p>GMT以无损且高压缩率的netCDF-4短整型格式保存单个网格数据，使得GMT提供的数据比原始数据占据更小的硬盘空间，而不丢失任何分辨率信息。对于分区块的高分辨率数据，GMT将数据以 JPEG2000 格式保存在GMT服务器中。该格式具有超高的压缩率，因而可以极大减小数据下载量。当将这些 JPEG2000 格式的数据下载到本地后，GMT会自动将其转换为短整型 netCDF4 格式。转换过程中使用了GDAL的功能，因而要求GMT支持GDAL。</p>
-</section>
-<section id="id7">
+</div>
+<div class="section" id="id7">
 <h4>数据更新<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
 <p>当原始数据发布了新版本，或GMT提供的数据被发现存在问题时，GMT会对数据服务器上的数据进行不定时的更新。GMT只提供数据的最新版本。如果你需要老版本的数据，需要自行到数据提供者的官方网站下载数据并自行处理。</p>
 <p>GMT检查数据更新的机制是：</p>
@@ -296,9 +292,9 @@
 <li><p>读取 <strong>gmt_data_server.txt</strong> 文件的内容，根据其内容确定GMT数据服务器上的远程数据是否有更新。若本地的数据文件比GMT数据服务器上的数据老，则
 GMT会自动将本地已下载的数据文件删除，并重新从GMT服务器下载。由此使用远程数据的更新。</p></li>
 </ol>
-</section>
-</section>
-<section id="id8">
+</div>
+</div>
+<div class="section" id="id8">
 <h3>使用方式<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
 <p>GMT为每种远程数据都提供了不同的分辨率和配准方式的数据，具体信息在各个数据的小节会详细介绍。所有GMT远程数据都可以通过指定特殊文件名的方式来使用：
 <strong>&#64;</strong><em>remote_name</em>_<em>rr</em><em>u</em>_<em>reg</em></p>
@@ -321,8 +317,8 @@ GMT会自动将本地已下载的数据文件删除，并重新从GMT服务器�
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmt grdcut @earth_relief_02m_g -Gearth_at_2m.grd
 </pre></div>
 </div>
-</section>
-<section id="id9">
+</div>
+<div class="section" id="id9">
 <h3>参数设置<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
 <p>你可以通过多个参数和命令进一步控制远程数据的获取过程以及数据在本地所占据的硬盘空间：</p>
 <ol class="arabic simple">
@@ -343,8 +339,8 @@ GMT会自动将本地已下载的数据文件删除，并重新从GMT服务器�
 <p>然后将生成的 <code class="docutils literal notranslate"><span class="pre">gmt.conf</span></code> 文件复制到GMT用户目录 <code class="docutils literal notranslate"><span class="pre">~/.gmt</span></code> (Linux/macOS)
 或 <code class="docutils literal notranslate"><span class="pre">C:\Users\XXX\.gmt</span></code> (Windows) 下。</p>
 </div>
-</section>
-<section id="id10">
+</div>
+<div class="section" id="id10">
 <h3>离线使用<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
 <p>如果你即将有一段无网络或低网速的时间，或者你不希望在第一次需要某个数据等待数据的下载，你可以使用 <a class="reference internal" href="../../module/gmtget/"><span class="doc">gmtget</span></a> 模块将数据提前下载到本地。</p>
 <p>你可以下载所有远程数据:</p>
@@ -364,16 +360,16 @@ GMT会自动将本地已下载的数据文件删除，并重新从GMT服务器�
 </pre></div>
 </div>
 <p>更多功能，见 <a class="reference internal" href="../../module/gmtget/"><span class="doc">gmtget</span></a> 模块文档。</p>
-</section>
-</section>
-<section id="setup-database">
+</div>
+</div>
+<div class="section" id="setup-database">
 <span id="id11"></span><h2>自定义数据<a class="headerlink" href="#setup-database" title="永久链接至标题">¶</a></h2>
 <p>除了GMT官方提供的内置数据和远程数据外，用户还可以自行准备数据，建立GMT数据库，供GMT使用。GMT中文社区整理了一些自定义数据，用户可以选用，包括：</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../gadm/"><span class="doc">GADM: 全球行政区划数据库</span></a></p></li>
 <li><p><a class="reference internal" href="../PB2002/"><span class="doc">PB2002: 全球板块边界数据</span></a></p></li>
 </ul>
-<section id="id12">
+<div class="section" id="id12">
 <h3>建立GMT数据库<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
 <p>建立GMT数据库的方法很简单，只要将数据集中放在某个特定目录下，然后修改环境变量
 <strong>GMT_DATADIR</strong> 使得其包含该目录即可。在使用数据库里的数据时，就可以直接指定数据文件名，GMT会自动到 <strong>GMT_DATADIR</strong> 所指定的目录中寻找该数据，而无需指定数据文件的完整路径。</p>
@@ -391,9 +387,9 @@ GMT会自动将本地已下载的数据文件删除，并重新从GMT服务器�
 </pre></div>
 </div>
 <p><strong>GMT_DATADIR</strong> 中的目录若以 <strong>/</strong> 结尾，GMT则会在 <strong>~/GMTDB</strong> 及其子目录下递归地寻找文件。注意，Windows不支持这一功能。</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
@@ -432,9 +428,9 @@ gitalk.render('gitalk-container');
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2014 - 2021, GMT中文社区..
+        &#169; 版权所有 2014-2021, GMT中文社区.
       <span class="lastupdated">
-        最后更新于 2021年04月08日.
+        最后更新于 2021年04月26日.
       </span>
 
     </p>
